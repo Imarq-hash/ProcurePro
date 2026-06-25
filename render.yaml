@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: procurepro
+    runtime: python
+    buildCommand: pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput
+    startCommand: gunicorn procurepro_project.wsgi:application --bind 0.0.0.0:10000 --workers 4 --timeout 120
+    plan: free
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        scope: common
+      - key: SECURE_SSL_REDIRECT
+        value: "True"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: procurepro-db
+          property: connectionString
+databases:
+  - name: procurepro-db
+    databaseName: procurepro
+    user: procurepro
+    plan: free

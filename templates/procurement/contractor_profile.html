@@ -1,0 +1,224 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ contractor.company_name }} - Profile - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .profile-header { background-color: var(--dark-bg); color: #FFFFFF; padding: 80px 0 40px; position: relative; overflow: hidden; }
+        .profile-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(144, 238, 144, 0.1) 0%, transparent 100%); z-index: 0; }
+        .profile-header .container { position: relative; z-index: 1; }
+        .profile-badge { background-color: #90EE90; color: #000000; padding: 4px 12px; border-radius: var(--radius-pill); font-size: 0.75rem; font-weight: 700; display: inline-block; margin-bottom: 20px; }
+        .profile-title { font-size: 3rem; margin-bottom: 12px; }
+        .profile-meta { display: flex; gap: 24px; color: var(--text-light-muted); font-size: 0.95rem; }
+        .profile-meta i { color: #90EE90; }
+
+        .profile-content { padding: 60px 0; background-color: #F9FAFB; }
+        .profile-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+        .profile-card { background-color: #FFFFFF; border-radius: var(--radius-lg); border: 1px solid #EAEAEA; padding: 32px; margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+        .profile-card h2 { font-size: 1.25rem; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+        .profile-card h2 i { color: #90EE90; font-size: 1.5rem; }
+        
+        .stat-grid-profile { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+        .profile-stat { background-color: #F9FAFB; padding: 20px; border-radius: var(--radius-md); text-align: center; }
+        .profile-stat-val { font-size: 1.5rem; font-weight: 800; color: #000000; display: block; }
+        .profile-stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+        
+        .info-list { list-style: none; padding: 0; }
+        .info-list li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #F5F5F5; font-size: 0.95rem; }
+        .info-list li:last-child { border-bottom: none; }
+        .info-label { color: var(--text-muted); font-weight: 500; }
+        .info-value { color: #000000; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="{% url 'home' %}" class="logo">
+                <div class="logo-icon">P</div>
+                <span class="logo-text">ProcurePro</span>
+            </a>
+            <div class="nav-actions">
+                <a href="{% url 'contractors' %}" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.2);">Back to Directory</a>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="profile-header">
+        <div class="container">
+            {% if contractor.status == 'APPROVED' %}
+            <span class="profile-badge">VERIFIED PARTNER</span>
+            {% else %}
+            <span class="profile-badge" style="background-color: #FFD700;">{{ contractor.get_status_display|upper }}</span>
+            {% endif %}
+            <h1 class="profile-title">{{ contractor.company_name }}</h1>
+            <div class="profile-meta">
+                <span><i class="ph ph-map-pin"></i> {{ contractor.address|default:"Ghana" }}</span>
+                <span><i class="ph ph-briefcase"></i> {{ contractor.specialization|default:"Construction" }}</span>
+                <span><i class="ph ph-calendar"></i> {{ contractor.experience_years|default:1 }}+ Years Experience</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="profile-content">
+        <div class="container">
+            <div class="profile-grid">
+                <!-- Main Column -->
+                <div class="profile-main">
+                    <div class="profile-card">
+                        <h2><i class="ph ph-info"></i> Company Overview</h2>
+                        <p style="color: var(--text-muted); line-height: 1.8;">{{ contractor.company_name }} is a verified partner specializing in {{ contractor.specialization|default:"construction projects"|lower }}. With over {{ contractor.experience_years|default:1 }} years of experience, we have successfully delivered projects across the region.</p>
+                        
+                        <div class="stat-grid-profile">
+                            <div class="profile-stat">
+                                <span class="profile-stat-val">124</span>
+                                <span class="profile-stat-label">Projects Completed</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="profile-stat-val">12</span>
+                                <span class="profile-stat-label">Active Tenders</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="profile-stat-val">98%</span>
+                                <span class="profile-stat-label">Success Rate</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-card">
+                        <h2><i class="ph ph-certificate"></i> Specialized Expertise</h2>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span class="tag" style="background-color: #F0F0F0; color: #333; padding: 8px 16px; border-radius: var(--radius-sm);">Bridge Engineering</span>
+                            <span class="tag" style="background-color: #F0F0F0; color: #333; padding: 8px 16px; border-radius: var(--radius-sm);">Urban Planning</span>
+                            <span class="tag" style="background-color: #F0F0F0; color: #333; padding: 8px 16px; border-radius: var(--radius-sm);">Sustainable Drainage</span>
+                            <span class="tag" style="background-color: #F0F0F0; color: #333; padding: 8px 16px; border-radius: var(--radius-sm);">Seismic Retrofitting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Column -->
+                <div class="profile-sidebar">
+                    <div class="profile-card">
+                        <h2><i class="ph ph-user-focus"></i> Key Details</h2>
+                        <ul class="info-list">
+                            <li>
+                                <span class="info-label">License Number</span>
+                                <span class="info-value">{{ contractor.license_number|default:"N/A" }}</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Employees</span>
+                                <span class="info-value">250 - 500</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Annual Revenue</span>
+                                <span class="info-value">GH?25M - GH?50M</span>
+                            </li>
+                            <li>
+                                <span class="info-label">Compliance Status</span>
+                                <span class="info-value" style="color: #00C853;">Fully Compliant</span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary btn-full" id="openMsgModal" style="margin-top: 24px;">Message Contractor</button>
+                    </div>
+
+                    <!-- Messaging Modal / Contact Details -->
+                    <div id="msgModal" class="modal-msg" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+                        <div class="modal-msg-content" style="background: white; padding: 40px; border-radius: 16px; width: 90%; max-width: 500px; position: relative; text-align: center;">
+                            <span id="closeMsgModal" style="position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #888;">&times;</span>
+                            
+                            <div style="width: 64px; height: 64px; background-color: #E8F5E9; color: #2E7D32; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 20px;">
+                                <i class="ph ph-envelope-simple-open"></i>
+                            </div>
+                            
+                            <h2 style="color: #000; margin-bottom: 10px; font-size: 1.5rem;">Contact Information</h2>
+                            <p style="color: var(--text-muted); margin-bottom: 30px;">Reach out to {{ contractor.company_name }} directly using the details below.</p>
+                            
+                            <div style="background-color: #F9FAFB; padding: 20px; border-radius: 12px; text-align: left; margin-bottom: 24px; border: 1px solid #EAEAEA;">
+                                <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px;">
+                                    <i class="ph ph-envelope" style="font-size: 1.25rem; color: #90EE90; margin-top: 2px;"></i>
+                                    <div>
+                                        <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500; margin-bottom: 2px;">Email Address</div>
+                                        <a href="mailto:{{ contractor.user.email }}" style="color: #000; font-weight: 600; text-decoration: none;">{{ contractor.user.email }}</a>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px;">
+                                    <i class="ph ph-phone" style="font-size: 1.25rem; color: #90EE90; margin-top: 2px;"></i>
+                                    <div>
+                                        <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500; margin-bottom: 2px;">Phone Number</div>
+                                        <a href="tel:{{ contractor.phone|default:'N/A' }}" style="color: #000; font-weight: 600; text-decoration: none;">{{ contractor.phone|default:'N/A' }}</a>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: flex-start; gap: 15px;">
+                                    <i class="ph ph-map-pin" style="font-size: 1.25rem; color: #90EE90; margin-top: 2px;"></i>
+                                    <div>
+                                        <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500; margin-bottom: 2px;">Physical Location</div>
+                                        <div style="color: #000; font-weight: 600; line-height: 1.4;">{{ contractor.address|default:"Address not provided" }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button id="sendMsgBtn" class="btn btn-primary btn-full">Close Window</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const msgModal = document.getElementById('msgModal');
+                            const openBtn = document.getElementById('openMsgModal');
+                            const closeBtn = document.getElementById('closeMsgModal');
+                            const sendBtn = document.getElementById('sendMsgBtn');
+
+                            openBtn.addEventListener('click', () => msgModal.style.display = 'flex');
+                            closeBtn.addEventListener('click', () => msgModal.style.display = 'none');
+                            sendBtn.addEventListener('click', () => msgModal.style.display = 'none');
+                            
+                            window.addEventListener('click', (e) => {
+                                if (e.target === msgModal) {
+                                    msgModal.style.display = 'none';
+                                }
+                            });
+                        });
+                    </script>
+
+                    <div class="profile-card" style="background-color: #000; color: #FFF; border: none;">
+                        <h2 style="color: #FFF;"><i class="ph ph-medal" style="color: #90EE90;"></i> Verification</h2>
+                        <p style="font-size: 0.85rem; color: var(--text-light-muted); margin-bottom: 20px;">This contractor has undergone a rigorous 5-step vetting process by ProcurePro administrators.</p>
+                        <div style="display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #90EE90; font-weight: 700;">
+                            <i class="ph ph-check-circle" style="font-size: 1.2rem;"></i> VETTED & VERIFIED
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <a href="{% url 'home' %}" class="logo">
+                    <div class="logo-icon">P</div>
+                    <span class="logo-text">ProcurePro</span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS OF SERVICE</a>
+                <a href="{% url 'help_center' %}">HELP CENTER</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 ProcurePro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

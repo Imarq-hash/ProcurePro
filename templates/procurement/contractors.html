@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractors - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="{% url 'home' %}" class="logo">
+                <div class="logo-icon">P</div>
+                <span class="logo-text">ProcurePro</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Tenders</a></li>
+                <li><a href="{% url 'contractors' %}" class="active">Contractors</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="{% url 'signin' %}" class="btn btn-outline">Login</a>
+                <a href="{% url 'signup' %}" class="btn btn-primary">Register</a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="contractors-header" style="position: relative; padding: 120px 0 80px 0; background-color: #fff; text-align: center; overflow: hidden;">
+        <img src="/static/assets/contractor1.jpg" alt="Contractors" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.1;">
+        <div class="container contractors-header-container">
+            <h1 class="page-title">Contractor <span class="text-primary">Directory</span></h1>
+            <p class="page-subtitle">Access our verified network of leading Ghanaian enterprise partners. Vetted for reliability, performance, and compliance across all major sectors.</p>
+            
+            <div class="search-filter-container">
+                <form method="GET" action="{% url 'contractors' %}" class="search-filter-form" style="width: 100%;">
+                    <div class="search-bar main-search">
+                        <div class="search-input-wrapper">
+                            <i class="ph ph-magnifying-glass"></i>
+                            <input type="text" name="q" placeholder="Search name by expertise or keyword, location, or category..." value="{{ request.GET.q|default:'' }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary search-btn">Search</button>
+                    </div>
+                    
+                    <!-- Filters row requested in text instructions -->
+                    <div class="filters-row" style="margin-top: 16px;">
+                        <div class="filter-group">
+                            <i class="ph ph-map-pin"></i>
+                            <select name="location" class="filter-select" onchange="this.form.submit()">
+                                <option value="">Location</option>
+                                <option value="Accra" {% if request.GET.location == 'Accra' %}selected{% endif %}>Accra, Ghana</option>
+                                <option value="Tema" {% if request.GET.location == 'Tema' %}selected{% endif %}>Tema, Ghana</option>
+                                <option value="Madina" {% if request.GET.location == 'Madina' %}selected{% endif %}>Madina, Ghana</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <i class="ph ph-briefcase"></i>
+                            <select name="specialization" class="filter-select" onchange="this.form.submit()">
+                                <option value="">Specialization</option>
+                                <option value="Construction" {% if request.GET.specialization == 'Construction' %}selected{% endif %}>Construction & Infrastructure</option>
+                                <option value="Electrical" {% if request.GET.specialization == 'Electrical' %}selected{% endif %}>Electrical</option>
+                                <option value="Plumbing" {% if request.GET.specialization == 'Plumbing' %}selected{% endif %}>Plumbing</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <i class="ph ph-clock-counter-clockwise"></i>
+                            <select name="experience" class="filter-select" onchange="this.form.submit()">
+                                <option value="">Experience</option>
+                                <option value="0-5" {% if request.GET.experience == '0-5' %}selected{% endif %}>0-5 Years</option>
+                                <option value="5-10" {% if request.GET.experience == '5-10' %}selected{% endif %}>5-10 Years</option>
+                                <option value="10+" {% if request.GET.experience == '10+' %}selected{% endif %}>10+ Years</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contractors Grid -->
+    <section class="contractors-directory">
+        <div class="container">
+            <div class="directory-grid">
+                {% for contractor in contractors %}
+                <div class="contractor-card">
+                    <div class="card-image">
+                        <img src="{{ contractor.image_url }}" alt="{{ contractor.company_name }}" style="width:100%; height:100%; object-fit:cover;">
+                        {% if contractor.status == 'APPROVED' %}
+                        <span class="verified-badge">VERIFIED</span>
+                        {% endif %}
+                    </div>
+                    <div class="card-content">
+                        <h3>{{ contractor.company_name }}</h3>
+                        <p class="specialization">{{ contractor.specialization|default:"CONSTRUCTION"|upper }}</p>
+                        <p class="location"><i class="ph ph-map-pin"></i> {{ contractor.address|default:"Ghana" }}</p>
+                        
+                        <div class="card-footer">
+                            <div class="card-user">
+                                <div class="user-avatar-sm avatar-light">{{ contractor.company_name|make_list|first|upper }}</div>
+                                <div class="user-avatar-sm avatar-primary">{{ contractor.experience_years|default:1 }}+</div>
+                            </div>
+                            <a href="{% url 'contractor_profile' contractor.pk %}" class="view-profile-link">View Profile <i class="ph ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #666;">
+                    <p>No verified contractors available at this time.</p>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="load-more-container">
+                <p class="showing-text">SHOWING 6 OF 1,284 CONTRACTORS</p>
+                <button class="btn btn-outline-primary">Load More Partners</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <a href="{% url 'home' %}" class="logo">
+                    <div class="logo-icon">P</div>
+                    <span class="logo-text">ProcurePro</span>
+                </a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS OF SERVICE</a>
+                <a href="{% url 'help_center' %}">HELP CENTER</a>
+                <a href="#">SECURITY</a>
+            </div>
+            
+            <div class="footer-copyright">
+                &copy; 2026 ProcurePro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

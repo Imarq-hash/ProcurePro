@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="auth-layout">
+        <!-- Left Sidebar (Image & Branding) -->
+        <div class="auth-sidebar">
+            <div class="auth-sidebar-content">
+                <a href="{% url 'home' %}" class="auth-brand">
+                    <div class="logo-icon">P</div>
+                    <span class="logo-text">ProcurePro</span>
+                </a>
+                
+                <h1 class="auth-title-large">
+                    The<br>
+                    <span class="auth-title-dark-highlight">Tenders</span><br>
+                    <span class="auth-title-primary-highlight">Contractors</span><br>
+                    <span class="auth-title-dark-highlight">way</span>
+                </h1>
+            </div>
+        </div>
+
+        <!-- Right Main (Form) -->
+        <div class="auth-main">
+            <div class="auth-form-container wide">
+                <div class="auth-logo-mobile">
+                    <a href="{% url 'home' %}" class="logo">
+                        <div class="logo-icon">P</div>
+                        <span class="logo-text" style="color: var(--text-main);">ProcurePro</span>
+                    </a>
+                </div>
+
+                <div class="auth-header">
+                    <h2>Create your account</h2>
+                    <p>Start bidding on tenders in minutes</p>
+                </div>
+
+                {% if messages %}
+                <div class="messages" style="margin-bottom: 20px;">
+                    {% for message in messages %}
+                    <div style="padding: 10px; border-radius: 4px; background-color: {% if message.tags == 'error' %}#ffebee{% else %}#e8f5e9{% endif %}; color: {% if message.tags == 'error' %}#c62828{% else %}#2e7d32{% endif %}; margin-bottom: 10px;">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <form action="{% url 'signup' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next|default:'' }}">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="company_name">Company Name</label>
+                            <div class="input-icon-wrapper">
+                                <i class="ph ph-buildings icon-left"></i>
+                                <input type="text" id="company_name" name="company_name" class="form-input" placeholder="Your Construction Co." required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="license_number">Contractor License Number <span style="color: #888; font-size: 0.8em;">(Optional)</span></label>
+                            <div class="input-icon-wrapper">
+                                <i class="ph ph-identification-card icon-left"></i>
+                                <input type="text" id="license_number" name="license_number" class="form-input" placeholder="Provide your license number (Optional)">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <div class="input-icon-wrapper">
+                                <i class="ph ph-envelope-simple icon-left"></i>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number</label>
+                            <div class="input-icon-wrapper">
+                                <i class="ph ph-phone icon-left"></i>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+233 XX XXX XXXX" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label" for="address">Company Address</label>
+                            <div class="input-icon-wrapper">
+                                <i class="ph ph-map-pin icon-left"></i>
+                                <input type="text" id="address" name="address" class="form-input" placeholder="Enter your full company address" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="specialization">Construction Specialization</label>
+                            <div class="input-icon-wrapper">
+                                <i class="ph ph-briefcase icon-left"></i>
+                                <input type="text" id="specialization" name="specialization" class="form-input" placeholder="e.g. Roads, Electrical, Plumbing" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="experience">Years of Experience</label>
+                            <div class="input-icon-wrapper">
+                                <i class="ph ph-clock-counter-clockwise icon-left"></i>
+                                <input type="number" id="experience" name="experience" class="form-input" placeholder="e.g. 5" min="0" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label" for="certificate">Upload Company Certificate (PDF/Image) <span style="color: #888; font-size: 0.8em;">(Optional)</span></label>
+                            <div class="input-icon-wrapper">
+                                <i class="ph ph-upload-simple icon-left"></i>
+                                <input type="file" id="certificate" name="certificate" class="form-input" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="password">Password</label>
+                            <div class="input-icon-wrapper">
+                                <i class="ph ph-lock icon-left"></i>
+                                <input type="password" id="password" name="password" class="form-input" placeholder="Create a strong password" required>
+                                <i class="ph ph-eye-slash icon-right toggle-password"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="confirm_password">Confirm Password</label>
+                            <div class="input-icon-wrapper">
+                                <i class="ph ph-lock icon-left"></i>
+                                <input type="password" id="confirm_password" name="confirm_password" class="form-input" placeholder="Confirm your password" required>
+                                <i class="ph ph-eye-slash icon-right toggle-password"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="terms" required>
+                            I agree to the Terms and Conditions
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: 8px; width: 100%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">Sign up</button>
+                </form>
+
+                <div class="auth-footer">
+                    Already have an account? <a href="{% url 'signin' %}{% if next %}?next={{ next|urlencode }}{% endif %}">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password toggle logic
+        document.querySelectorAll('.toggle-password').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    this.classList.remove('ph-eye-slash');
+                    this.classList.add('ph-eye');
+                } else {
+                    input.type = 'password';
+                    this.classList.remove('ph-eye');
+                    this.classList.add('ph-eye-slash');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

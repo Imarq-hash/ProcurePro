@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .help-header { background-color: #FFFFFF; padding: 60px 0; border-bottom: 1px solid #F0F0F0; text-align: center; }
+        .help-search-wrapper { max-width: 600px; margin: 30px auto 0; position: relative; }
+        .help-search-input { width: 100%; padding: 16px 20px 16px 50px; border-radius: var(--radius-md); border: 1px solid #EAEAEA; font-size: 1rem; box-shadow: var(--shadow-sm); outline: none; }
+        .help-search-wrapper i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.2rem; }
+        
+        .guide-section { padding: 60px 0; background-color: #FFFFFF; }
+        .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+        .guide-card { padding: 30px; border-radius: var(--radius-lg); background-color: #FFFFFF; border: 1px solid #F0F0F0; transition: all 0.3s ease; }
+        .guide-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: #90EE90; }
+        .guide-icon { font-size: 2rem; color: #90EE90; margin-bottom: 20px; }
+        .guide-card h3 { font-size: 1.2rem; margin-bottom: 20px; color: #000000; }
+        .guide-list { list-style: none; padding: 0; }
+        .guide-list li { margin-bottom: 12px; }
+        .guide-list a { color: var(--text-muted); font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+        .guide-list a:hover { color: #90EE90; }
+        .guide-list i { font-size: 0.8rem; }
+        
+        .faq-section { padding: 60px 0 100px; background-color: #F9FAFB; }
+        .faq-grid { max-width: 800px; margin: 40px auto 0; }
+        .faq-item { background-color: #FFFFFF; border-radius: var(--radius-md); border: 1px solid #EAEAEA; margin-bottom: 16px; overflow: hidden; }
+        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #000000; }
+        .faq-answer { padding: 0 20px 20px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; display: none; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-question i { transition: transform 0.3s ease; }
+        
+        .section-tag { color: #90EE90; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em; display: block; margin-bottom: 12px; text-align: center; }
+        .section-title-help { font-size: 2rem; color: #000000; text-align: center; margin-bottom: 16px; }
+    </style>
+</head>
+<body>
+    <!-- Simple Navbar -->
+    <nav class="navbar" style="background-color: #FFFFFF; border-bottom: 1px solid #F0F0F0;">
+        <div class="container nav-container">
+            <a href="{% url 'home' %}" class="logo" style="color: #000000;">
+                <div class="logo-icon">P</div>
+                <span class="logo-text">ProcurePro</span>
+            </a>
+            <div class="nav-actions">
+                <a href="{% url 'home' %}" class="btn btn-outline" style="color: #000000; border-color: #EAEAEA;">Back to Site</a>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Section 1: Search Help -->
+    <header class="help-header">
+        <div class="container">
+            <span class="section-tag">Support</span>
+            <h1 class="section-title-help">Help Center</h1>
+            <p style="color: var(--text-muted);">Find the answers and guides you need to master the platform.</p>
+            
+            <div class="help-search-wrapper">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" class="help-search-input" placeholder="Search for help articles (e.g., 'How to submit a bid')">
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 2: User Guides -->
+    <section class="guide-section">
+        <div class="container">
+            <span class="section-tag">Learning Paths</span>
+            <h2 class="section-title-help">Explore User Guides</h2>
+            
+            <div class="guide-grid">
+                <!-- Contractor Guides -->
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="ph ph-hard-hat"></i></div>
+                    <h3>Contractor Guides</h3>
+                    <ul class="guide-list">
+                        <li><a href="#"><i class="ph ph-caret-right"></i> How to register as a contractor</a></li>
+                        <li><a href="#"><i class="ph ph-caret-right"></i> How to view available tenders</a></li>
+                        <li><a href="#"><i class="ph ph-caret-right"></i> How to submit digital bids</a></li>
+                        <li><a href="#"><i class="ph ph-caret-right"></i> How to track procurement status</a></li>
+                    </ul>
+                </div>
+
+                <!-- Supplier Guides -->
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="ph ph-truck"></i></div>
+                    <h3>Supplier Guides</h3>
+                    <ul class="guide-list">
+                        <li><a href="#"><i class="ph ph-caret-right"></i> How to register as a supplier</a></li>
+                        <li><a href="#"><i class="ph ph-caret-right"></i> How to upload product catalog</a></li>
+                        <li><a href="#"><i class="ph ph-caret-right"></i> How to respond to purchase orders</a></li>
+                        <li><a href="#"><i class="ph ph-caret-right"></i> Managing delivery schedules</a></li>
+                    </ul>
+                </div>
+
+                <!-- Admin Guides -->
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="ph ph-shield-check"></i></div>
+                    <h3>Administrator Guides</h3>
+                    <ul class="guide-list">
+                        <li><a href="#"><i class="ph ph-caret-right"></i> Managing tender lifecycles</a></li>
+                        <li><a href="#"><i class="ph ph-caret-right"></i> Approving & vetting contractors</a></li>
+                        <li><a href="#"><i class="ph ph-caret-right"></i> Monitoring procurement analytics</a></li>
+                        <li><a href="#"><i class="ph ph-caret-right"></i> System configuration & security</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: FAQs -->
+    <section class="faq-section">
+        <div class="container">
+            <span class="section-tag">FAQ</span>
+            <h2 class="section-title-help">Frequently Asked Questions</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I submit a tender bid?
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Login to your contractor dashboard, browse the available tenders, select the one you're interested in, and click the "Submit Bid" button. Follow the prompts to upload your technical and financial proposals.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I edit my submitted bid?
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, you can edit your submitted bid as long as the tender deadline has not passed. Go to "My Bids" in your dashboard to find and update your submission.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What documents are required for registration?
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Typically, you will need your company registration certificate, tax clearance, and relevant professional licenses specific to your industry specialization.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How will I know if my bid was successful?
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        You will receive an instant notification in your dashboard and via email once the administrator has reviewed and made a decision on the bids for that tender.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <a href="{% url 'home' %}" class="logo">
+                    <div class="logo-icon">P</div>
+                    <span class="logo-text">ProcurePro</span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS OF SERVICE</a>
+                <a href="{% url 'help_center' %}">HELP CENTER</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 ProcurePro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

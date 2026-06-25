@@ -1,0 +1,457 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProcurePro - Find and Apply for Tenders Easily</title>
+    <meta name="description" content="The modern e-procurement platform that connects contractors with government and private sector opportunities.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="{% url "home" %}" class="logo">
+                <div class="logo-icon">P</div>
+                <span class="logo-text">ProcurePro</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="{% url 'tenders' %}" class="active">Tenders</a></li>
+                <li><a href="{% url 'contractors' %}">Contractors</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="notification-wrapper" style="margin-right: 15px;">
+                    <button class="notification-bell" id="notificationBtn" style="background: none; border: none; font-size: 1.5rem; color: var(--text-main); cursor: pointer; position: relative; display: flex; align-items: center;">
+                        <i class="ph ph-bell"></i>
+                        <span class="notification-badge" style="position: absolute; top: -5px; right: -5px; background: #2E7D32; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</span>
+                    </button>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                            <span class="mark-read">Mark all as read</span>
+                        </div>
+                        <div class="notification-list">
+                            <a href="#" class="notification-item unread">
+                                <div class="notification-item-title">New Tender Posted</div>
+                                <div class="notification-item-msg">A new Commercial Complex Construction tender in Accra is now open.</div>
+                                <div class="notification-item-meta">
+                                    <span class="notification-item-time">5 mins ago</span>
+                                    <span class="notification-item-link">View Details</span>
+                                </div>
+                            </a>
+                            <a href="#" class="notification-item unread">
+                                <div class="notification-item-title">Deadline Alert</div>
+                                <div class="notification-item-msg">Deadline for "Road Rehabilitation" is approaching in 24 hours.</div>
+                                <div class="notification-item-meta">
+                                    <span class="notification-item-time">1 hour ago</span>
+                                    <span class="notification-item-link">Action Required</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="notification-footer">
+                            <a href="{% url 'dashboard' %}">View all in Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="{% url 'signin' %}" class="btn btn-outline">Login</a>
+                <a href="{% url 'signup' %}" class="btn btn-primary">Register</a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Carousel -->
+    <header class="hero" style="position: relative; overflow: hidden; height: 90vh; min-height: 700px; display: flex; align-items: center;">
+        <div class="hero-slider">
+            <!-- Slide 1: Expert Contractor Teams -->
+            <div class="slide active">
+                <img src="/static/assets/contractor1.jpg" alt="Expert Contractor Team">
+                <div class="slide-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)); z-index: 1;"></div>
+            </div>
+            <!-- Slide 2: Strategic Planning -->
+            <div class="slide">
+                <img src="/static/assets/contractor2.jpg" alt="Project Planning">
+                <div class="slide-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)); z-index: 1;"></div>
+            </div>
+            <!-- Slide 3: Engineering Excellence -->
+            <div class="slide">
+                <img src="/static/assets/contractor3.jpg" alt="Engineering Excellence">
+                <div class="slide-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)); z-index: 1;"></div>
+            </div>
+        </div>
+        
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <div class="container hero-container" style="position: relative; z-index: 2; text-align: center; max-width: 900px;">
+            <div class="hero-content-slider" id="heroTextSlider" style="height: auto; margin-bottom: 40px;">
+                <div class="hero-text-slide active">
+                    <h1 class="hero-title" style="font-size: 4rem; line-height: 1.1; margin-bottom: 20px;">Empowering Ghana's <br><span class="highlight">Top Contractors</span></h1>
+                    <p class="hero-subtitle" style="font-size: 1.25rem; opacity: 0.9; max-width: 700px; margin: 0 auto 30px;">The definitive platform for verified professionals to discover and win transformative infrastructure projects.</p>
+                </div>
+                <div class="hero-text-slide">
+                    <h1 class="hero-title" style="font-size: 4rem; line-height: 1.1; margin-bottom: 20px;">Strategic <span class="highlight">Partnerships</span> <br>Built on Trust</h1>
+                    <p class="hero-subtitle" style="font-size: 1.25rem; opacity: 0.9; max-width: 700px; margin: 0 auto 30px;">Connecting expert construction firms with high-value government and private sector opportunities.</p>
+                </div>
+                <div class="hero-text-slide">
+                    <h1 class="hero-title" style="font-size: 4rem; line-height: 1.1; margin-bottom: 20px;">Scale Your <br><span class="highlight">Business</span> Today</h1>
+                    <p class="hero-subtitle" style="font-size: 1.25rem; opacity: 0.9; max-width: 700px; margin: 0 auto 30px;">Join the leading e-procurement ecosystem and unlock exclusive access to national development projects.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Action Section -->
+    <section class="action-section" style="margin-top: -60px; position: relative; z-index: 10; padding-bottom: 60px;">
+        <div class="container">
+            <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); text-align: center;">
+                <div class="hero-buttons" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="{% url 'signup' %}" class="btn btn-primary btn-lg" style="padding: 18px 40px; font-size: 1.1rem; border-radius: 50px; box-shadow: 0 10px 30px rgba(144,238,144,0.3);">Register as a Contractor</a>
+                    <a href="{% url 'contractors' %}" class="btn btn-primary btn-lg" style="padding: 18px 40px; font-size: 1.1rem; border-radius: 50px; box-shadow: 0 10px 30px rgba(144,238,144,0.3); display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                        <i class="ph ph-magnifying-glass"></i> Search for Contractors
+                    </a>
+                    <a href="{% url 'tenders' %}" class="btn btn-outline-dark btn-lg" style="padding: 18px 40px; font-size: 1.1rem; border-radius: 50px;">Browse Tenders</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Built for Modern Bidding</h2>
+            
+            <div class="features-grid">
+                <!-- Feature Card 1 -->
+                <div class="feature-card dark-card">
+                    <div class="feature-icon">
+                        <i class="ph ph-clock-user"></i>
+                    </div>
+                    <h3>Real-Time Updates</h3>
+                    <p>Get instant notifications about new tenders matching your expertise and location.</p>
+                </div>
+                
+                <!-- Feature Card 2 -->
+                <div class="feature-card dark-card">
+                    <div class="feature-icon">
+                        <i class="ph ph-shield-check"></i>
+                    </div>
+                    <h3>Secure Platform</h3>
+                    <p>Enterprise-grade security ensures your sensitive bid information stays protected.</p>
+                </div>
+                
+                <!-- Feature Card 3 -->
+                <div class="feature-card dark-card">
+                    <div class="feature-icon">
+                        <i class="ph ph-check-circle"></i>
+                    </div>
+                    <h3>Simplified Process</h3>
+                    <p>Streamlined bid submission with document management and tracking capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tenders -->
+    <section class="tenders">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title text-left">Featured Tenders</h2>
+                    <p class="section-subtitle">Latest opportunities waiting for your bid</p>
+                </div>
+                <a href="{% url "tenders" %}" class="btn btn-dark btn-sm">View All <i class="ph ph-arrow-right"></i></a>
+            </div>
+            
+            <div class="tenders-grid">
+                {% for tender in featured_tenders %}
+                <div class="tender-card dark-card">
+                    <div class="tender-image">
+                        <div class="img-placeholder">
+                            <img src="{{ tender.image_url }}" alt="{{ tender.title }}">
+                        </div>
+                        <span class="badge badge-light">{{ tender.get_status_display }}</span>
+                    </div>
+                    <div class="tender-content">
+                        <div class="tender-meta">
+                            <span class="tag">{{ tender.get_category_display }}</span>
+                            <span class="budget">
+                                {% if tender.budget_min and tender.budget_max %}
+                                    GH₵{{ tender.budget_min }} - {{ tender.budget_max }}
+                                {% elif tender.budget_max %}
+                                    Up to GH₵{{ tender.budget_max }}
+                                {% else %}
+                                    Budget Negotiable
+                                {% endif %}
+                            </span>
+                        </div>
+                        <h3 class="tender-title">{{ tender.title }}</h3>
+                        <p class="tender-desc">{{ tender.description|truncatewords:15 }}</p>
+                        <p class="tender-location">Location: <strong>{{ tender.location }}</strong></p>
+                        <a href="{% if request.user.is_authenticated %}{% url 'project_details' tender.pk %}{% else %}{% url 'signin' %}?next={% url 'project_details' tender.pk %}{% endif %}" class="btn btn-primary btn-full">View details</a>
+                    </div>
+                </div>
+                {% empty %}
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted);">
+                    <i class="ph ph-folder-open" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                    <p>No active tenders available at the moment.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Carousel -->
+    <section class="success-stories" style="padding: 100px 0; background-color: #f9f9f9; overflow: hidden;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+                <h2 class="section-title">Construction <span class="highlight">Success</span> Stories</h2>
+                <p class="section-subtitle">Real results from real partnerships across Ghana.</p>
+            </div>
+            
+            <div class="project-slider" style="position: relative; overflow: hidden;">
+                <div class="project-slides-container" id="projectSlider" style="display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <!-- Slide 1 -->
+                    <div class="project-slide-item" style="min-width: 100%; padding: 0 10px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.08);">
+                            <img src="/static/assets/road_repair.png" style="width: 100%; height: 450px; object-fit: cover;">
+                            <div style="padding: 50px;">
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                                    <span class="badge" style="background: #90EE90; color: #000; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 800;">COMPLETED</span>
+                                    <span style="color: #666; font-size: 0.85rem;">March 2026</span>
+                                </div>
+                                <h3 style="font-size: 2.2rem; margin-bottom: 20px; font-weight: 800;">Accra-Tema Motorway Upgrade</h3>
+                                <p style="color: #555; line-height: 1.8; font-size: 1.1rem; margin-bottom: 30px;">A critical infrastructure milestone delivered with precision. Improved daily commute for thousands of residents in the Greater Accra region.</p>
+                                <div style="display: flex; align-items: center; gap: 15px; padding-top: 25px; border-top: 1px solid #f0f0f0;">
+                                    <div style="width: 45px; height: 45px; background: #000; color: #90EE90; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">A</div>
+                                    <div>
+                                        <p style="font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;">Main Contractor</p>
+                                        <p style="font-weight: 700; color: #000;">Apex Structural Ltd</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% for project in completed_projects %}
+                    <!-- Slide {{ forloop.counter }} -->
+                    <div class="project-slide-item" style="min-width: 100%; padding: 0 10px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.08);">
+                            <div style="width: 100%; height: 450px; background-color: #f5f5f5; display: flex; align-items: center; justify-content: center; color: #ccc;">
+                                <i class="ph ph-buildings" style="font-size: 8rem;"></i>
+                            </div>
+                            <div style="padding: 50px;">
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                                    <span class="badge" style="background: #90EE90; color: #000; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 800;">COMPLETED</span>
+                                    <span style="color: #666; font-size: 0.85rem;">{{ project.updated_at|date:"F Y" }}</span>
+                                </div>
+                                <h3 style="font-size: 2.2rem; margin-bottom: 20px; font-weight: 800;">{{ project.title }}</h3>
+                                <p style="color: #555; line-height: 1.8; font-size: 1.1rem; margin-bottom: 30px;">{{ project.description|truncatewords:20 }}</p>
+                                <div style="display: flex; align-items: center; gap: 15px; padding-top: 25px; border-top: 1px solid #f0f0f0;">
+                                    {% with winning_bid=project.bids.filter|first %}
+                                    <div style="width: 45px; height: 45px; background: #000; color: #90EE90; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">
+                                        <i class="ph ph-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;">Procuring Entity</p>
+                                        <p style="font-weight: 700; color: #000;">{{ project.admin.name|default:"Gov/Private Sector" }}</p>
+                                    </div>
+                                    {% endwith %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div style="text-align: center; padding: 60px; width: 100%; color: #666;">
+                        <i class="ph ph-hard-hat" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                        <p>Our platform is launching! Success stories will appear here soon.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Custom Navigation -->
+                <div style="position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); pointer-events: none; padding: 0 20px;">
+                    <button id="projectPrev" style="pointer-events: auto; background: white; color: #000; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s;"><i class="ph ph-caret-left"></i></button>
+                    <button id="projectNext" style="pointer-events: auto; background: white; color: #000; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s;"><i class="ph ph-caret-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Rated Contractors Slider -->
+    <section class="top-contractors" style="padding: 80px 0; background-color: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Top Rated <span class="highlight">Contractors</span></h2>
+                    <p class="section-subtitle">Verified professionals with a track record of excellence.</p>
+                </div>
+                <a href="{% url 'contractors' %}" class="btn btn-dark btn-sm">View All <i class="ph ph-arrow-right"></i></a>
+            </div>
+
+            <div class="contractor-slider-wrapper" style="position: relative; margin-top: 40px; overflow-x: auto;">
+                <div class="contractor-slider" id="contractorSlider" style="display: flex; gap: 30px; padding-bottom: 20px;">
+                    {% for contractor in top_contractors %}
+                    <!-- Contractor {{ forloop.counter }} -->
+                    <div class="contractor-slide-card" style="min-width: 350px; background: #fdfdfd; border: 1px solid #eee; border-radius: 16px; padding: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.02);">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                            <div style="width: 60px; height: 60px; background: #222; color: #90EE90; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800;">{{ contractor.company_name|make_list|first|upper|default:"?" }}</div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 1.1rem;">{{ contractor.company_name }}</h4>
+                                <div style="display: flex; color: #FFB300; font-size: 0.8rem; margin-top: 4px;">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                                    <span style="color: #666; margin-left: 5px;">(Verified)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 20px;">Proudly representing the top tier of verified contractors executing high-performance projects across the region.</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="badge" style="background: rgba(144,238,144,0.1); color: #2E7D32; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700;">ACTIVE CONTRACTOR</span>
+                            <a href="{% url 'contractor_profile' contractor.pk %}" style="color: #000; font-weight: 700; font-size: 0.85rem; text-decoration: none;">Profile <i class="ph ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div style="width: 100%; text-align: center; padding: 40px; color: #666;">
+                        <i class="ph ph-users" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                        <p>No verified contractors yet. Be the first to join!</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Ready to scale your<br>contracting business?</h2>
+                <p>Join thousands of contractors winning more work with ProcurePro's<br>enterprise-grade toolkit.</p>
+                <div class="cta-buttons">
+                    <a href="{% url 'signup' %}" class="btn btn-primary btn-lg">Get Started for Free</a>
+                    <a href="#" class="btn btn-outline-dark btn-lg">Schedule a Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <a href="{% url 'home' %}" class="logo">
+                <div class="logo-icon">P</div>
+                <span class="logo-text">ProcurePro</span>
+            </a>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#">PRIVACY POLICY</a>
+            <a href="#">TERMS OF SERVICE</a>
+            <a href="{% url 'help_center' %}">HELP CENTER</a>
+            <a href="#">SECURITY</a>
+            <a href="{% url 'admin_login' %}" style="color: #AACC00; font-size: 0.85rem;">ADMIN</a>
+        </div>
+        
+        <div class="footer-copyright">
+            &copy; 2026 ProcurePro. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <!-- Notification Detail Modal -->
+    <div id="notifDetailModal" class="modal-notif" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; backdrop-filter: blur(5px); align-items: center; justify-content: center;">
+        <div class="modal-notif-content" style="background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 500px; position: relative;">
+            <span id="notifModalClose" style="position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer;">&times;</span>
+            <h2 id="notifModalTitle" style="color: #000; margin-bottom: 15px;"></h2>
+            <p id="notifModalMsg" style="color: #666; line-height: 1.6;"></p>
+            <div style="margin-top: 25px; text-align: right;">
+                <button onclick="document.getElementById('notifDetailModal').style.display='none'" class="btn btn-primary" style="padding: 8px 24px; margin-right: 10px; background: #eee; color: #333; border: none;">Dismiss</button>
+                <a href="{% url 'tenders' %}" class="btn btn-primary" style="padding: 10px 24px; text-decoration: none;">View Tender</a>
+            </div>
+        </div>
+    </div>
+    <!-- Tender Request Popup -->
+    <div id="tenderRequestPopup" style="display: none; position: fixed; bottom: 30px; right: 30px; background: white; padding: 24px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); border: 1px solid rgba(144,238,144,0.3); z-index: 10000; width: 320px; font-family: 'Inter', sans-serif;">
+        <button id="closePopupBtn" style="position: absolute; top: 12px; right: 12px; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #888; transition: color 0.3s;">&times;</button>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="background: rgba(144,238,144,0.2); color: #2E7D32; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                <i class="ph ph-plus-circle"></i>
+            </div>
+            <h4 style="margin: 0; color: #000; font-size: 1.1rem; font-weight: 700;">Have a Tender?</h4>
+        </div>
+        <p style="color: #444; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5;">Do you want to post or add a tender to ProcurePro?</p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <a href="{% url 'request_tender' %}" style="background: #90EE90; color: #000; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 700; text-align: center; transition: transform 0.2s, box-shadow 0.2s;">Post/Add Tender</a>
+            <button id="maybeLaterBtn" style="background: transparent; color: #666; border: 1px solid #ddd; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 600; font-family: inherit; transition: background 0.2s;">Maybe Later</button>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('tenderRequestPopup');
+            const closeBtn = document.getElementById('closePopupBtn');
+            const maybeLaterBtn = document.getElementById('maybeLaterBtn');
+
+            // Check if shown in this session
+            if (!sessionStorage.getItem('tenderPopupShown')) {
+                // Show after 5 seconds
+                setTimeout(() => {
+                    popup.style.display = 'block';
+                    popup.style.animation = 'slideUpFade 0.5s ease-out forwards';
+                }, 5000);
+            }
+
+            const dismissPopup = () => {
+                popup.style.animation = 'slideDownFade 0.3s ease-in forwards';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 300);
+                sessionStorage.setItem('tenderPopupShown', 'true');
+            };
+
+            closeBtn.addEventListener('click', dismissPopup);
+            maybeLaterBtn.addEventListener('click', dismissPopup);
+        });
+    </script>
+    <style>
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideDownFade {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(30px); }
+        }
+        #tenderRequestPopup a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(144,238,144,0.4);
+        }
+        #tenderRequestPopup button:hover {
+            background: #f5f5f5;
+        }
+        #closePopupBtn:hover {
+            color: #333;
+        }
+    </style>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

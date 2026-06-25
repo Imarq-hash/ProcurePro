@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Tenders - Admin - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .admin-sidebar { background-color: #0A0A0A; }
+        .admin-nav-item.active { background-color: #AACC00; color: #0A0A0A; }
+        .admin-nav-item:hover { background-color: rgba(170, 204, 0, 0.1); color: #AACC00; }
+        .admin-top-nav { border-bottom: 1px solid #EAEAEA; background-color: white; box-shadow: none; color: var(--text-main); }
+        .admin-logo-text { color: var(--text-main); }
+        .admin-search { background-color: #F5F5F5; }
+        .admin-search input { color: var(--text-main); }
+        .admin-search i { color: var(--text-muted); }
+        .admin-notif { color: var(--text-main); }
+        .dashboard-body.admin-mode { background-color: #F9FAFB; }
+        
+        .admin-table { width: 100%; border-collapse: collapse; }
+        .admin-table th { padding: 16px; text-align: left; font-weight: 600; color: var(--text-muted); border-bottom: 2px solid #EAEAEA; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .admin-table td { padding: 16px; border-bottom: 1px solid #F0F0F0; font-size: 0.95rem; vertical-align: middle; }
+        .admin-table tbody tr:hover { background-color: #FAFAFA; }
+        
+        .action-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; color: var(--text-muted); transition: all 0.2s; cursor: pointer; text-decoration: none; }
+        .action-icon:hover { background-color: #F0F0F0; color: var(--text-main); }
+        .action-icon.danger:hover { background-color: #FFEBEE; color: #D32F2F; }
+    </style>
+</head>
+<body class="dashboard-body admin-mode">
+    <!-- Top Navigation -->
+    <nav class="dash-top-nav admin-top-nav">
+        <a href="{% url "home" %}" class="logo dash-logo">
+            <div class="logo-icon">P</div>
+            <span class="logo-text admin-logo-text">ProcurePro <span style="font-weight: 400; color: var(--text-muted); font-size: 0.9rem;">Admin</span></span>
+        </a>
+        
+        <div class="dash-search admin-search">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="text" placeholder="Search across platform...">
+        </div>
+        
+        <div class="dash-user-actions">
+            <a href="{% url 'help_center' %}" class="help-btn-nav" title="Help Center" style="color: inherit; font-size: 1.5rem; display: flex; align-items: center; margin-right: 15px; opacity: 0.7;">
+    <i class="ph ph-question"></i>
+</a>
+
+            <div class="notification-wrapper">
+    <button class="notification-bell" id="notificationBtn">
+        <i class="ph ph-bell"></i>
+        <span class="notification-badge">3</span>
+    </button>
+    <div class="notification-dropdown" id="notificationDropdown">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <span class="mark-read">Mark all as read</span>
+        </div>
+        <div class="notification-list">
+            <a href="#" class="notification-item unread">
+                <div class="notification-item-title">New Tender Posted</div>
+                <div class="notification-item-msg">A new construction tender in Accra matches your profile.</div>
+                <div class="notification-item-meta">
+                    <span class="notification-item-time">2 mins ago</span>
+                    <span class="notification-item-link">View Tender</span>
+                </div>
+            </a>
+            <a href="#" class="notification-item unread">
+                <div class="notification-item-title">Bid Update</div>
+                <div class="notification-item-msg">Your bid for "Road Rehabilitation" is now under review.</div>
+                <div class="notification-item-meta">
+                    <span class="notification-item-time">1 hour ago</span>
+                    <span class="notification-item-link">Check Status</span>
+                </div>
+            </a>
+            <a href="#" class="notification-item">
+                <div class="notification-item-title">Deadline Approaching</div>
+                <div class="notification-item-msg">Deadline for "Arena Electrical Upgrade" is in 24 hours.</div>
+                <div class="notification-item-meta">
+                    <span class="notification-item-time">5 hours ago</span>
+                    <span class="notification-item-link">Complete Bid</span>
+                </div>
+            </a>
+        </div>
+        <div class="notification-footer">
+            <a href="#">View all notifications</a>
+        </div>
+    </div>
+</div>
+
+            <a href="{% url 'settings' %}" class="user-avatar" style="text-decoration: none; display: flex; align-items: center; justify-content: center;" style="background-color: var(--dark-bg); color: white;">A</a>
+        </div>
+    </nav>
+
+    <div class="dash-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="dash-sidebar admin-sidebar">
+            <div class="dash-nav">
+                <p style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 12px 16px 8px;">Main Menu</p>
+                <a href="{% url 'admin_dashboard' %}" class="dash-nav-item admin-nav-item">
+                    <i class="ph ph-squares-four"></i>
+                    <span>Dashboard</span>
+                </a>
+                
+                <p style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 24px 16px 8px;">Tenders</p>
+                <a href="{% url 'admin_post_tender' %}" class="dash-nav-item admin-nav-item">
+                    <i class="ph ph-plus-circle"></i>
+                    <span>Post Tender</span>
+                </a>
+                <a href="{% url 'admin_manage_tenders' %}" class="dash-nav-item admin-nav-item active">
+                    <i class="ph ph-list-dashes"></i>
+                    <span>Manage Tenders</span>
+                </a>
+                <a href="{% url 'admin_tender_requests' %}" class="dash-nav-item admin-nav-item">
+                    <i class="ph ph-envelope-simple"></i>
+                    <span>Tender Requests</span>
+                    {% if pending_requests_count > 0 %}
+                    <span style="background: #FFA000; color: #000; border-radius: 50%; width: 18px; height: 18px; font-size: 0.65rem; display: flex; align-items: center; justify-content: center; margin-left: auto; font-weight: 800;">{{ pending_requests_count }}</span>
+                    {% endif %}
+                </a>
+                <a href="{% url 'admin_review_bids' %}" class="dash-nav-item admin-nav-item">
+                    <i class="ph ph-check-square"></i>
+                    <span>Review Bids</span>
+                </a>
+
+                <p style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 24px 16px 8px;">Users</p>
+                <a href="{% url 'admin_contractors' %}" class="dash-nav-item admin-nav-item">
+                    <i class="ph ph-users"></i>
+                    <span>Contractors</span>
+                </a>
+
+                <p style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 24px 16px 8px;">System</p>
+                <a href="{% url 'admin_reports' %}" class="dash-nav-item admin-nav-item">
+                    <i class="ph ph-chart-line-up"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="{% url 'settings' %}" class="dash-nav-item admin-nav-item">
+                    <i class="ph ph-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+            
+            <div class="dash-nav mt-4">
+                <a href="{% url 'logout' %}" class="dash-nav-item logout">
+                    <i class="ph ph-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <div class="dash-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <h1 style="color: var(--text-main);">Manage Tenders</h1>
+                    <p>View, edit, or close existing procurement opportunities</p>
+                </div>
+                <a href="{% url 'admin_post_tender' %}" class="btn btn-primary">
+                    <i class="ph ph-plus"></i> New Tender
+                </a>
+            </div>
+
+            <div class="content-card" style="padding: 0; overflow: hidden;">
+                <div style="padding: 24px; border-bottom: 1px solid #EAEAEA; display: flex; gap: 16px;">
+                    <div class="dash-search admin-search" style="flex: 1; max-width: 400px; width: auto; margin: 0;">
+                        <i class="ph ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search tenders...">
+                    </div>
+                    <select class="form-input" style="width: 200px; padding: 10px 16px; border-radius: var(--radius-pill);">
+                        <option value="all">All Statuses</option>
+                        <option value="open">Open</option>
+                        <option value="closed">Closed</option>
+                        <option value="draft">Draft</option>
+                    </select>
+                </div>
+                
+                <div style="overflow-x: auto;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Tender Title</th>
+                                <th>Category</th>
+                                <th>Budget</th>
+                                <th>Deadline</th>
+                                <th>Status</th>
+                                <th style="text-align: right;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tender in tenders %}
+                            <tr>
+                                <td>
+                                    <div style="font-weight: 600; color: var(--text-main);">{{ tender.title }}</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Posted: {{ tender.created_at|date:"M d, Y" }}</div>
+                                </td>
+                                <td>{{ tender.get_category_display }}</td>
+                                <td>GH₵ {{ tender.budget_min|default:"TBD" }} - GH₵ {{ tender.budget_max|default:"TBD" }}</td>
+                                <td>{{ tender.deadline|date:"M d, Y" }}</td>
+                                <td>
+                                    {% if tender.status == 'OPEN' %}
+                                    <span class="badge-outline badge-outline-green">Open</span>
+                                    {% elif tender.status == 'CLOSED' %}
+                                    <span class="badge-outline badge-outline-yellow" style="color: var(--text-muted); border-color: #EAEAEA; background-color: #F5F5F5;">Closed</span>
+                                    {% else %}
+                                    <span class="badge-outline badge-outline-yellow" style="color: #1976D2; background-color: rgba(25, 118, 210, 0.1);">Draft</span>
+                                    {% endif %}
+                                </td>
+                                <td style="text-align: right;">
+                                    <a href="{% url 'project_details' tender.pk %}" class="action-icon" title="View"><i class="ph ph-eye"></i></a>
+                                    <a href="#" class="action-icon danger" title="Delete"><i class="ph ph-trash"></i></a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 48px; color: var(--text-muted);">
+                                    <i class="ph ph-folder-open" style="font-size: 3rem; display: block; margin-bottom: 12px; opacity: 0.5;"></i>
+                                    No tenders have been posted yet.
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="padding: 16px 24px; border-top: 1px solid #EAEAEA; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.85rem;">
+                    <div>Showing {{ tenders.count }} entries</div>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn btn-outline" style="padding: 6px 12px;" disabled>Previous</button>
+                        <button class="btn btn-outline" style="padding: 6px 12px;" disabled>Next</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <!-- Notification Detail Modal -->
+    <div id="notifDetailModal" class="modal-notif" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+        <div class="modal-notif-content" style="background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 500px; position: relative;">
+            <span id="notifModalClose" style="position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer;">&times;</span>
+            <h2 id="notifModalTitle" style="color: #000; margin-bottom: 15px;"></h2>
+            <p id="notifModalMsg" style="color: #666; line-height: 1.6;"></p>
+            <div style="margin-top: 25px; text-align: right;">
+                <button onclick="document.getElementById('notifDetailModal').style.display='none'" class="btn btn-primary" style="padding: 8px 24px;">Close</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

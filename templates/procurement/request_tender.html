@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request to Post a Tender - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .contact-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 32px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .contact-header h1 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+        .contact-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <a href="{% url 'home' %}" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; margin-bottom: 24px;">
+            <i class="ph ph-arrow-left"></i> Back to Home
+        </a>
+        <div class="contact-header">
+            <h1>Request to Post a Tender</h1>
+            <p>Send a message to our administrators to list your tender on ProcurePro.</p>
+        </div>
+
+        {% if messages %}
+        <div class="messages" style="margin-bottom: 20px;">
+            {% for message in messages %}
+            <div style="padding: 12px; border-radius: 6px; background-color: {% if message.tags == 'error' %}#ffebee{% else %}#e8f5e9{% endif %}; color: {% if message.tags == 'error' %}#c62828{% else %}#2e7d32{% endif %}; margin-bottom: 10px;">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form action="{% url 'request_tender' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label" for="name">Your Name</label>
+                    <div class="input-icon-wrapper">
+                        <i class="ph ph-user icon-left"></i>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <div class="input-icon-wrapper">
+                        <i class="ph ph-envelope-simple icon-left"></i>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label class="form-label" for="tender_title">Tender Title</label>
+                    <div class="input-icon-wrapper">
+                        <i class="ph ph-text-t icon-left"></i>
+                        <input type="text" id="tender_title" name="tender_title" class="form-input" placeholder="E.g., Highway Rehabilitation Project" required>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label class="form-label" for="description">Tender Description</label>
+                    <textarea id="description" name="description" class="form-input" rows="5" placeholder="Provide a detailed description of the tender..." required style="padding: 12px; border: 1px solid var(--border-light); border-radius: 6px; width: 100%; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label class="form-label" for="document">Supporting Document (Optional)</label>
+                    <div class="input-icon-wrapper">
+                        <i class="ph ph-upload-simple icon-left"></i>
+                        <input type="file" id="document" name="document" class="form-input" accept=".pdf,.doc,.docx">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: 24px; width: 100%; display: flex; justify-content: center; border: none; cursor: pointer;">Submit Request</button>
+        </form>
+    </div>
+</body>
+</html>

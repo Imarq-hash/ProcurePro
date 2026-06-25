@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ tender.title }} - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body style="background-color: #FAFAFA;">
+    <!-- Navigation (reused from top of other pages, simplified for focus) -->
+    <nav class="navbar" style="position: static;">
+        <div class="container nav-container">
+            <a href="{% url 'home' %}" class="logo">
+                <div class="logo-icon">P</div>
+                <span class="logo-text">ProcurePro</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="{% url 'tenders' %}" class="active">Tenders</a></li>
+                <li><a href="{% url 'contractors' %}">Contractors</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="{% url 'settings' %}" class="user-avatar" style="text-decoration: none; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; font-size: 0.8rem;">
+                    JD
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" style="padding-top: 40px; padding-bottom: 80px;">
+        <a href="{% url 'tenders' %}" class="back-link" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 24px; color: var(--text-main);">
+            <i class="ph ph-arrow-left"></i> Back to Tenders
+        </a>
+
+        <!-- Header Card -->
+        <div class="project-header-card">
+            <div class="badges-row" style="margin-bottom: 16px; display: flex; gap: 12px;">
+                <span class="badge-outline badge-outline-yellow" style="color: #AACC00; background-color: rgba(170, 204, 0, 0.1); border: 1px solid rgba(170, 204, 0, 0.2);">{{ tender.get_category_display }}</span>
+                <span class="badge-outline badge-outline-green" style="color: #00C853; background-color: rgba(0, 200, 83, 0.1); border: 1px solid rgba(0, 200, 83, 0.2);">{{ tender.get_status_display }}</span>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <div style="margin-bottom: 24px; border-radius: 12px; overflow: hidden; height: 250px;">
+                        <img src="{{ tender.image_url }}" alt="{{ tender.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h1 style="font-size: 2.2rem; margin-bottom: 24px; color: white;">{{ tender.title }}</h1>
+                    
+                    <div style="display: flex; gap: 32px; color: #A0A0A0; font-size: 0.9rem;">
+                        <span style="display: flex; align-items: center; gap: 8px;">
+                            <i class="ph ph-calendar-blank"></i> Posted: {{ tender.created_at|date:"M d, Y" }}
+                        </span>
+                        <span style="display: flex; align-items: center; gap: 8px;">
+                            <i class="ph ph-calendar-x"></i> Deadline: {{ tender.deadline|date:"M d, Y" }}
+                        </span>
+                    </div>
+                </div>
+                
+                <div>
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.role == 'CONTRACTOR' %}
+                            <a href="{% url 'submit_bid' tender.pk %}" class="btn btn-primary btn-lg" style="padding: 12px 32px;">Submit Bid</a>
+                        {% else %}
+                            <div style="color: var(--text-muted); padding: 12px 32px; font-size: 0.9rem;">Only contractors can submit bids</div>
+                        {% endif %}
+                    {% else %}
+                        <a href="{% url 'signup' %}?next={% url 'project_details' tender.pk %}" class="btn btn-primary btn-lg" style="padding: 12px 32px;">Sign Up to Submit Bid</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Grid -->
+        <div class="project-details-grid">
+            <!-- Left Column -->
+            <div class="project-left-col">
+                <div class="content-card">
+                    <h2 style="font-size: 1.25rem; margin-bottom: 16px;">Project Description</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8;">{{ tender.description|linebreaksbr }}</p>
+                </div>
+                
+                <div class="content-card">
+                    <h2 style="font-size: 1.25rem; margin-bottom: 16px;">Requirements & Specifications</h2>
+                    <ul class="check-list">
+                        <li><i class="ph ph-check-circle"></i> Educational facility experience</li>
+                        <li><i class="ph ph-check-circle"></i> ADA compliance knowledge</li>
+                        <li><i class="ph ph-check-circle"></i> Background checks required</li>
+                        <li><i class="ph ph-check-circle"></i> Child safety protocols</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="project-right-col">
+                <div class="sidebar-dark-card">
+                    <h2 style="font-size: 1.25rem; margin-bottom: 24px;">Project Details</h2>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label"><i class="ph ph-currency-circle-dollar"></i> Budget Range</div>
+                        <div class="detail-value highlight-text">GH₵ {{ tender.budget_min|default:"TBD" }} - GH₵ {{ tender.budget_max|default:"TBD" }}</div>
+                    </div>
+                    
+                    <div class="detail-separator"></div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label"><i class="ph ph-map-pin"></i> Location</div>
+                        <div class="detail-value">{{ tender.location }}</div>
+                    </div>
+                    
+                    <div class="detail-separator"></div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label"><i class="ph ph-buildings"></i> Category</div>
+                        <div class="detail-value">{{ tender.get_category_display }}</div>
+                    </div>
+                    
+                    <div class="detail-separator"></div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label"><i class="ph ph-envelope-simple"></i> Contact</div>
+                        <div class="detail-value" style="font-size: 0.85rem;">{{ tender.admin.user.email|default:"admin@procurepro.com" }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="project-bottom-cta">
+            <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Ready to bid?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">Submit your proposal and compete for this opportunity.</p>
+            {% if request.user.is_authenticated %}
+                {% if request.user.role == 'CONTRACTOR' %}
+                    <a href="{% url 'submit_bid' tender.pk %}" class="btn btn-primary" style="padding: 12px 32px;">Submit Your Bid</a>
+                {% else %}
+                    <div style="color: var(--text-muted); padding: 12px 32px; font-size: 0.9rem;">Only contractors can submit bids</div>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'signup' %}?next={% url 'project_details' tender.pk %}" class="btn btn-primary" style="padding: 12px 32px;">Sign Up to Submit Bid</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <a href="{% url 'home' %}" class="logo">
+                    <div class="logo-icon">P</div>
+                    <span class="logo-text">ProcurePro</span>
+                </a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS OF SERVICE</a>
+                <a href="{% url 'help_center' %}">HELP CENTER</a>
+                <a href="#">SECURITY</a>
+            </div>
+            
+            <div class="footer-copyright">
+                &copy; 2026 ProcurePro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Dashboard - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="dashboard-body">
+
+    <!-- Top Navigation -->
+    <header class="dash-top-nav">
+        <a href="{% url 'home' %}" class="dash-logo" style="color: inherit; text-decoration: none;">
+            <div class="logo-icon">P</div>
+            <span class="logo-text">ProcurePro</span>
+        </a>
+        
+        <div class="dash-search">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="text" placeholder="Search tenders, contractors...">
+        </div>
+        
+        <div class="dash-user-actions">
+            <a href="{% url 'help_center' %}" class="help-btn-nav" title="Help Center" style="color: inherit; font-size: 1.5rem; display: flex; align-items: center; margin-right: 15px; opacity: 0.7;">
+    <i class="ph ph-question"></i>
+</a>
+
+            {% include 'notif_fragment.html' %}
+            
+            <a href="{% url 'settings' %}" class="user-avatar" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">JD</a>
+        </div>
+    </header>
+
+    <div class="dash-layout">
+        <!-- Sidebar -->
+        <aside class="dash-sidebar">
+            <nav class="dash-nav">
+                <a href="{% url 'dashboard' %}" class="dash-nav-item active">
+                    <i class="ph ph-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="{% url 'tenders' %}" class="dash-nav-item">
+                    <i class="ph ph-file-text"></i>
+                    <span>Tenders</span>
+                </a>
+                <a href="{% url 'my_bids' %}" class="dash-nav-item">
+                    <i class="ph ph-briefcase"></i>
+                    <span>My Bids</span>
+                </a>
+                <a href="#" class="dash-nav-item">
+                    <i class="ph ph-folder"></i>
+                    <span>Documents</span>
+                </a>
+                <a href="{% url 'settings' %}" class="dash-nav-item">
+                    <i class="ph ph-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="dash-nav-item sidebar-notif-trigger">
+                    <i class="ph ph-bell"></i>
+                    <span>Notifications</span>
+                    {% if unread_notifications_count > 0 %}
+                    <span style="background: #2E7D32; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 0.65rem; display: flex; align-items: center; justify-content: center; margin-left: auto;">{{ unread_notifications_count }}</span>
+                    {% endif %}
+                </a>
+
+                <a href="{% url 'settings' %}" class="dash-nav-item">
+                    <i class="ph ph-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <a href="{% url 'logout' %}" class="dash-nav-item logout">
+                <i class="ph ph-sign-out"></i>
+                <span>Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <div class="dash-header">
+                <h1>Dashboard</h1>
+                <p>Welcome back! Here's your overview.</p>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="dash-stats">
+                <div class="stat-card stat-dark">
+                    <div class="stat-value">{{ stats.my_bids }}</div>
+                    <div class="stat-label">My Submitted Bids</div>
+                    <div class="stat-decor"></div>
+                </div>
+                
+                <div class="stat-card stat-light">
+                    <div class="stat-value">{{ stats.open_tenders }}</div>
+                    <div class="stat-label">Open Tenders</div>
+                </div>
+                
+                <div class="stat-card stat-light">
+                    <div class="stat-value">{{ stats.closed_tenders }}</div>
+                    <div class="stat-label">Closed Tenders</div>
+                </div>
+                
+                <div class="stat-card stat-light">
+                    <div class="stat-value">{{ stats.notifications }}</div>
+                    <div class="stat-label">Notifications</div>
+                </div>
+            </div>
+
+            <div class="dash-content-grid">
+                <!-- Left Column: Recent Tenders -->
+                <div class="dash-recent-tenders">
+                    <div class="section-header-dash">
+                        <div>
+                            <h2>Recent Tenders</h2>
+                            <p>Latest opportunities for you</p>
+                        </div>
+                        <a href="{% url 'tenders' %}" class="btn btn-dark btn-sm">View All <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="tender-list">
+                        {% for tender in open_tenders %}
+                        <a href="{% url 'project_details' pk=tender.pk %}" class="tender-list-item" style="text-decoration: none; display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                            <div class="tender-info">
+                                <h3>{{ tender.title }}</h3>
+                                <p>{{ tender.description|truncatechars:50 }}</p>
+                                <div class="tender-meta-dash">
+                                    <span><i class="ph ph-map-pin"></i> {{ tender.location }}</span>
+                                    <span><i class="ph ph-calendar-blank"></i> {{ tender.deadline|date:"M d, Y" }}</span>
+                                </div>
+                            </div>
+                            <div class="tender-action">
+                                <span class="badge-outline badge-outline-green">Open</span>
+                                <div class="tender-price">GH₵ {{ tender.budget_max|default:"TBD" }}</div>
+                            </div>
+                        </a>
+                        {% empty %}
+                        <div class="tender-list-item" style="justify-content: center; color: var(--text-muted);">
+                            No recent tenders available.
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Right Column: My Bids Widget -->
+                <div class="dash-widget-sidebar">
+                    <div class="widget-card dark-widget">
+                        <div class="widget-header">
+                            <div>
+                                <h3>My Bids</h3>
+                                <p>Track your submissions</p>
+                            </div>
+                            <a href="#" class="icon-link"><i class="ph ph-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="widget-list">
+                            {% for bid in my_bids %}
+                            <div class="widget-item">
+                                <div class="widget-item-info">
+                                    <h4>{{ bid.tender.title|truncatechars:30 }}</h4>
+                                    <div class="widget-item-price">GH₵{{ bid.amount }}</div>
+                                    <div class="widget-item-date">Submitted {{ bid.submitted_at|date:"n/j/Y" }}</div>
+                                </div>
+                                <span class="badge-outline badge-outline-{% if bid.status == 'ACCEPTED' %}green{% elif bid.status == 'REJECTED' %}red{% else %}yellow{% endif %}">{{ bid.get_status_display }}</span>
+                            </div>
+                            {% empty %}
+                            <div class="widget-item" style="justify-content: center; color: var(--text-muted); border: none;">
+                                You haven't submitted any bids yet.
+                            </div>
+                            {% endfor %}
+                        </div>
+                        
+                        <a href="{% url 'tenders' %}" class="btn btn-primary btn-full mt-4">Browse New Tenders</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Detail Modal -->
+    <div id="notifDetailModal" class="modal-notif" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; backdrop-filter: blur(5px); align-items: center; justify-content: center;">
+        <div class="modal-notif-content" style="background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 500px; position: relative;">
+            <span id="notifModalClose" style="position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer;">&times;</span>
+            <h2 id="notifModalTitle" style="color: #000; margin-bottom: 15px;"></h2>
+            <p id="notifModalMsg" style="color: #666; line-height: 1.6;"></p>
+            <div style="margin-top: 25px; text-align: right;">
+                <button onclick="document.getElementById('notifDetailModal').style.display='none'" class="btn btn-primary" style="padding: 8px 24px; margin-right: 10px; background: #eee; color: #333; border: none;">Dismiss</button><a href="/tenders/" class="btn btn-primary" style="padding: 10px 24px; text-decoration: none;">View Tender</a>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

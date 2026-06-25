@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body style="background-color: var(--dark-bg); margin: 0; padding: 0; display: flex; height: 100vh; overflow: hidden;">
+    
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; position: relative;">
+        <!-- Admin Branding -->
+        <div style="position: absolute; top: 40px; left: 40px;">
+            <a href="{% url 'home' %}" class="logo" style="color: white; display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <div class="logo-icon" style="background-color: var(--primary-color); color: var(--dark-bg); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 8px;">P</div>
+                <span class="logo-text" style="font-weight: 700; font-size: 1.25rem;">ProcurePro <span style="font-weight: 400; color: var(--text-muted);">Admin</span></span>
+            </a>
+        </div>
+
+        <!-- Login Form Container -->
+        <div style="background-color: var(--dark-card-bg); padding: 48px; border-radius: var(--radius-xl); width: 100%; max-width: 440px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+            <h1 style="color: white; font-size: 1.8rem; margin-bottom: 8px;">Admin Portal</h1>
+            <p style="color: var(--text-light-muted); font-size: 0.95rem; margin-bottom: 32px;">Enter your credentials to access the management dashboard.</p>
+            
+            {% if messages %}
+            <div style="margin-bottom: 24px;">
+                {% for message in messages %}
+                <div style="padding: 12px; border-radius: 6px; background-color: {% if message.tags == 'error' %}rgba(211, 47, 47, 0.1){% else %}rgba(46, 125, 50, 0.1){% endif %}; border-left: 4px solid {% if message.tags == 'error' %}#D32F2F{% else %}#2E7D32{% endif %}; color: {% if message.tags == 'error' %}#ffcdd2{% else %}#c8e6c9{% endif %}; font-size: 0.9rem;">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <form action="{% url 'signin' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="login_type" value="admin">
+                
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label class="form-label" style="color: var(--text-light-muted);">Admin Email</label>
+                    <div class="input-icon-wrapper">
+                        <i class="ph ph-envelope icon-left" style="color: var(--text-muted);"></i>
+                        <input type="email" name="email" class="form-input" placeholder="admin@procurepro.com" style="background-color: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: white;" required>
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 24px;">
+                    <label class="form-label" style="color: var(--text-light-muted);">Password</label>
+                    <div class="input-icon-wrapper">
+                        <i class="ph ph-lock icon-left" style="color: var(--text-muted);"></i>
+                        <input type="password" name="password" class="form-input" id="password" placeholder="••••••••" style="background-color: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: white;" required>
+                        <i class="ph ph-eye icon-right" id="togglePassword" style="cursor: pointer; color: var(--text-muted);"></i>
+                    </div>
+                </div>
+                
+                <div class="form-options" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; font-size: 0.85rem;">
+                    <label class="checkbox-wrapper" style="color: var(--text-light-muted);">
+                        <input type="checkbox" style="accent-color: var(--primary-color);">
+                        Remember me
+                    </label>
+                    <a href="#" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full btn-lg" style="box-shadow: 0 4px 15px rgba(212, 255, 0, 0.2);">Sign In to Dashboard</button>
+            </form>
+        </div>
+        
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 40px;">
+            Secure access restricted to authorized personnel only.
+        </p>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

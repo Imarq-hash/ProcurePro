@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenders Directory - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="{% url 'home' %}" class="logo">
+                <div class="logo-icon">P</div>
+                <span class="logo-text">ProcurePro</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="{% url 'tenders' %}" class="active">Tenders</a></li>
+                <li><a href="{% url 'contractors' %}">Contractors</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'dashboard' %}" class="btn btn-outline">Dashboard</a>
+                    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+                {% else %}
+                    <a href="{% url 'signin' %}" class="btn btn-outline">Login</a>
+                    <a href="{% url 'signup' %}" class="btn btn-primary">Register</a>
+                {% endif %}
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="tenders-header-section" style="position: relative; padding: 120px 0 80px 0; background-color: #fff; text-align: center; overflow: hidden;">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f3366d4?auto=format&fit=crop&q=80&w=1600" alt="Tenders" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.1;">
+        <div class="container" style="position: relative; z-index: 2;">
+            <h1 class="page-title" style="font-size: 4rem; display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 40px; flex-wrap: wrap;">
+                <span style="background-color: var(--dark-bg); color: var(--primary-color); padding: 0 16px;">Tenders</span>
+                <span style="color: var(--text-main);">Directory</span>
+            </h1>
+            
+            <form method="GET" action="{% url 'tenders' %}" class="search-filter-container">
+                <div class="search-bar main-search" style="background-color: var(--light-bg);">
+                    <div class="search-input-wrapper">
+                        <i class="ph ph-magnifying-glass"></i>
+                        <input type="text" name="q" placeholder="Search by title or description..." value="{{ request.GET.q|default:'' }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary search-btn">Search</button>
+                </div>
+                
+                <div class="filters-row" style="margin-top: 16px;">
+                    <div class="filter-group" style="background-color: var(--light-bg);">
+                        <i class="ph ph-map-pin"></i>
+                        <select name="location" class="filter-select" onchange="this.form.submit()">
+                            <option value="">Location</option>
+                            <option value="Accra" {% if request.GET.location == 'Accra' %}selected{% endif %}>Accra, Ghana</option>
+                            <option value="Tema" {% if request.GET.location == 'Tema' %}selected{% endif %}>Tema, Ghana</option>
+                            <option value="Madina" {% if request.GET.location == 'Madina' %}selected{% endif %}>Madina, Ghana</option>
+                        </select>
+                    </div>
+                    <div class="filter-group" style="background-color: var(--light-bg);">
+                        <i class="ph ph-tag"></i>
+                        <select name="category" class="filter-select" onchange="this.form.submit()">
+                            <option value="">Category</option>
+                            {% for code, name in categories %}
+                            <option value="{{ code|lower }}" {% if request.GET.category == code|lower %}selected{% endif %}>{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="filter-group" style="background-color: var(--light-bg);">
+                        <i class="ph ph-currency-dollar"></i>
+                        <select name="budget" class="filter-select" onchange="this.form.submit()">
+                            <option value="">Budget Range</option>
+                            <option value="0-500k" {% if request.GET.budget == '0-500k' %}selected{% endif %}>Under GH₵500k</option>
+                            <option value="500k-1m" {% if request.GET.budget == '500k-1m' %}selected{% endif %}>GH₵500k - GH₵1M</option>
+                            <option value="1m+" {% if request.GET.budget == '1m+' %}selected{% endif %}>GH₵1M+</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Tenders Grid -->
+    <section class="tenders">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title text-left">Featured Tenders</h2>
+                    <p class="section-subtitle">Latest opportunities waiting for your bid</p>
+                </div>
+            </div>
+            
+            <div class="tenders-grid" style="margin-bottom: 48px;">
+                {% for tender in tenders %}
+                <div class="tender-card dark-card">
+                    <div class="tender-image">
+                        <div class="img-placeholder">
+                            <img src="{{ tender.image_url }}" alt="{{ tender.title }}">
+                        </div>
+                        <span class="badge badge-light">Open</span>
+                    </div>
+                    <div class="tender-content">
+                        <div class="tender-meta">
+                            <span class="tag">{{ tender.get_category_display }}</span>
+                            <span class="budget">Budget: GH₵ {{ tender.budget_max|default:"TBD" }}</span>
+                        </div>
+                        <h3 class="tender-title">{{ tender.title }}</h3>
+                        <p class="tender-desc">{{ tender.description|truncatechars:100 }}</p>
+                        <p class="tender-location">Location: <strong>{{ tender.location }}</strong></p>
+                        <p class="tender-location" style="margin-top: 4px;">Deadline: <strong>{{ tender.deadline|date:"M d, Y" }}</strong></p>
+                        <a href="{% if user.is_authenticated %}{% url 'project_details' tender.pk %}{% else %}{% url 'signin' %}?next={% url 'project_details' tender.pk %}{% endif %}" class="btn btn-primary btn-full">View details</a>
+                    </div>
+                </div>
+                {% empty %}
+                <div style="grid-column: 1 / -1; padding: 48px; text-align: center; color: var(--text-muted); width: 100%;">
+                    <i class="ph ph-folder-open" style="font-size: 3rem; display: block; margin-bottom: 12px; opacity: 0.5;"></i>
+                    No tenders match your filters.
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="load-more-container">
+                <p class="showing-text">SHOWING {{ tenders.count }} TENDERS</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <a href="{% url 'home' %}" class="logo">
+                    <div class="logo-icon">P</div>
+                    <span class="logo-text">ProcurePro</span>
+                </a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS OF SERVICE</a>
+                <a href="{% url 'help_center' %}">HELP CENTER</a>
+                <a href="#">SECURITY</a>
+            </div>
+            
+            <div class="footer-copyright">
+                &copy; 2026 ProcurePro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

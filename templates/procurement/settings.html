@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="dashboard-body">
+        <!-- Top Navigation -->
+        <nav class="dash-top-nav">
+            <a href="{% url 'home' %}" class="logo dash-logo">
+                <div class="logo-icon">P</div>
+                <span class="logo-text" style="color: white;">ProcurePro</span>
+            </a>
+            
+            <div class="dash-search">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Search tenders, contractors...">
+            </div>
+            
+            <div class="dash-user-actions">
+                <a href="{% url 'help_center' %}" class="help-btn-nav" title="Help Center" style="color: inherit; font-size: 1.5rem; display: flex; align-items: center; margin-right: 15px; opacity: 0.7;">
+    <i class="ph ph-question"></i>
+</a>
+
+            <div class="notification-wrapper">
+    <button class="notification-bell" id="notificationBtn">
+        <i class="ph ph-bell"></i>
+        <span class="notification-badge">3</span>
+    </button>
+    <div class="notification-dropdown" id="notificationDropdown">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <span class="mark-read">Mark all as read</span>
+        </div>
+        <div class="notification-list">
+            <a href="#" class="notification-item unread">
+                <div class="notification-item-title">New Tender Posted</div>
+                <div class="notification-item-msg">A new construction tender in Accra matches your profile.</div>
+                <div class="notification-item-meta">
+                    <span class="notification-item-time">2 mins ago</span>
+                    <span class="notification-item-link">View Tender</span>
+                </div>
+            </a>
+            <a href="#" class="notification-item unread">
+                <div class="notification-item-title">Bid Update</div>
+                <div class="notification-item-msg">Your bid for "Road Rehabilitation" is now under review.</div>
+                <div class="notification-item-meta">
+                    <span class="notification-item-time">1 hour ago</span>
+                    <span class="notification-item-link">Check Status</span>
+                </div>
+            </a>
+            <a href="#" class="notification-item">
+                <div class="notification-item-title">Deadline Approaching</div>
+                <div class="notification-item-msg">Deadline for "Arena Electrical Upgrade" is in 24 hours.</div>
+                <div class="notification-item-meta">
+                    <span class="notification-item-time">5 hours ago</span>
+                    <span class="notification-item-link">Complete Bid</span>
+                </div>
+            </a>
+        </div>
+        <div class="notification-footer">
+            <a href="#">View all notifications</a>
+        </div>
+    </div>
+</div>
+
+                <a href="{% url 'settings' %}" class="user-avatar" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">JD</a>
+            </div>
+        </nav>
+
+        <div class="dash-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="dash-sidebar">
+                <div class="dash-nav">
+                    <a href="{% url 'dashboard' %}" class="dash-nav-item">
+                        <i class="ph ph-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="{% url 'tenders' %}" class="dash-nav-item">
+                        <i class="ph ph-file-text"></i>
+                        <span>Tenders</span>
+                    </a>
+                    <a href="{% url 'my_bids' %}" class="dash-nav-item">
+                        <i class="ph ph-briefcase"></i>
+                        <span>My Bids</span>
+                    </a>
+                    <a href="{% url 'contractors' %}" class="dash-nav-item">
+                        <i class="ph ph-users"></i>
+                        <span>Contractors</span>
+                    </a>
+                    <a href="{% url 'settings' %}" class="dash-nav-item active">
+                        <i class="ph ph-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+                
+                <div class="dash-nav mt-4">
+                    <a href="{% url 'logout' %}" class="dash-nav-item logout">
+                        <i class="ph ph-sign-out"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="dash-main">
+                <div class="dash-header">
+                    <h1 style="color: var(--text-main);">Settings</h1>
+                    <p>Manage your account preferences and company profile</p>
+                </div>
+
+                <div class="dash-content-grid settings-grid">
+                    
+                    <!-- Edit Profile -->
+                    <div class="content-card">
+                        <h2 class="settings-card-title">Edit Profile</h2>
+                        <form action="{% url 'settings' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-grid settings-form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Company Name</label>
+                                    <input type="text" name="company_name" class="form-input" value="{{ profile.company_name|default:'' }}">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-input" value="{{ request.user.email|default:'' }}" disabled>
+                                    <small style="color: var(--text-muted); font-size: 0.8rem;">Email cannot be changed.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Specialization</label>
+                                    <input type="text" class="form-input" value="{{ profile.specialization|default:'' }}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">License Number</label>
+                                    <input type="text" class="form-input" value="{{ profile.license_number|default:'' }}" disabled>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Change Password -->
+                    <div class="content-card">
+                        <h2 class="settings-card-title">Change Password</h2>
+                        <form action="#">
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label class="form-label">Current Password</label>
+                                <input type="password" class="form-input" placeholder="Enter current password">
+                            </div>
+                            <div class="form-grid settings-form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">New Password</label>
+                                    <input type="password" class="form-input" placeholder="Enter new password">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Confirm New Password</label>
+                                    <input type="password" class="form-input" placeholder="Confirm new password">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline" style="border-color: var(--dark-bg); color: var(--dark-bg);">Update Password</button>
+                        </form>
+                    </div>
+
+                    <!-- Company Documents -->
+                    <div class="content-card">
+                        <h2 class="settings-card-title">Company Documents</h2>
+                        <div class="file-dropzone">
+                            <i class="ph ph-upload-simple"></i>
+                            <div class="dropzone-text">Upload new certificates or licenses</div>
+                            <div class="dropzone-subtext">PDF, DOC, DOCX (Max 10MB)</div>
+                            <input type="file" multiple class="dropzone-input">
+                        </div>
+                        <ul class="check-list">
+                            <li><i class="ph ph-file-pdf" style="color: var(--text-muted);"></i> Business_Registration_Certificate.pdf <span style="margin-left: auto; color: #AACC00; font-size: 0.8rem;">Verified</span></li>
+                            <li><i class="ph ph-file-pdf" style="color: var(--text-muted);"></i> Contractor_License_2026.pdf <span style="margin-left: auto; color: #AACC00; font-size: 0.8rem;">Verified</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Notification Preferences -->
+                    <div class="content-card">
+                        <h2 class="settings-card-title">Notification Preferences</h2>
+                        <div class="settings-checkbox-group">
+                            <label class="checkbox-wrapper" style="font-weight: 500;">
+                                <input type="checkbox" checked>
+                                New tender alerts matching my specialization
+                            </label>
+                            <label class="checkbox-wrapper" style="font-weight: 500;">
+                                <input type="checkbox" checked>
+                                Updates on my submitted bids
+                            </label>
+                            <label class="checkbox-wrapper" style="font-weight: 500;">
+                                <input type="checkbox" checked>
+                                System announcements and updates
+                            </label>
+                            <label class="checkbox-wrapper" style="font-weight: 500;">
+                                <input type="checkbox">
+                                Promotional emails and newsletters
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-primary">Save Preferences</button>
+                    </div>
+
+                    <!-- Deactivate Account -->
+                    <div class="content-card" style="border-color: #FFCDD2; background-color: #FFEBEE;">
+                        <h2 style="font-size: 1.25rem; margin-bottom: 12px; color: #D32F2F;">Danger Zone</h2>
+                        <p class="settings-danger-text">Once you deactivate your account, your profile and bids will no longer be visible. This action cannot be easily undone.</p>
+                        <button type="button" class="btn" style="background-color: #D32F2F; color: white;">Deactivate Account</button>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <!-- Notification Detail Modal -->
+    <div id="notifDetailModal" class="modal-notif" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+        <div class="modal-notif-content" style="background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 500px; position: relative;">
+            <span id="notifModalClose" style="position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer;">&times;</span>
+            <h2 id="notifModalTitle" style="color: #000; margin-bottom: 15px;"></h2>
+            <p id="notifModalMsg" style="color: #666; line-height: 1.6;"></p>
+            <div style="margin-top: 25px; text-align: right;">
+                <button onclick="document.getElementById('notifDetailModal').style.display='none'" class="btn btn-primary" style="padding: 8px 24px;">Close</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

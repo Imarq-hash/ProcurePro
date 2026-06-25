@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - ProcurePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="auth-layout">
+        <!-- Left Sidebar (Image & Branding) -->
+        <div class="auth-sidebar">
+            <div class="auth-sidebar-content">
+                <a href="{% url 'home' %}" class="auth-brand">
+                    <div class="logo-icon">P</div>
+                    <span class="logo-text">ProcurePro</span>
+                </a>
+                
+                <h1 class="auth-title-large">
+                    The<br>
+                    <span class="auth-title-dark-highlight">Tenders</span><br>
+                    <span class="auth-title-primary-highlight">Contractors</span><br>
+                    <span class="auth-title-dark-highlight">way</span>
+                </h1>
+            </div>
+        </div>
+
+        <!-- Right Main (Form) -->
+        <div class="auth-main">
+            <div class="auth-form-container">
+                <div class="auth-logo-mobile">
+                    <a href="{% url 'home' %}" class="logo">
+                        <div class="logo-icon">P</div>
+                        <span class="logo-text" style="color: var(--text-main);">ProcurePro</span>
+                    </a>
+                </div>
+
+                <div class="auth-header">
+                    <h2>Welcome back!</h2>
+                    <p>Start bidding on tenders in minutes</p>
+                </div>
+
+                {% if messages %}
+                <div class="messages" style="margin-bottom: 20px;">
+                    {% for message in messages %}
+                    <div style="padding: 10px; border-radius: 4px; background-color: {% if message.tags == 'error' %}#ffebee{% else %}#e8f5e9{% endif %}; color: {% if message.tags == 'error' %}#c62828{% else %}#2e7d32{% endif %}; margin-bottom: 10px;">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <form action="{% url 'signin' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next|default:'' }}">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <div class="input-icon-wrapper">
+                            <i class="ph ph-envelope-simple icon-left"></i>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <div class="input-icon-wrapper">
+                            <i class="ph ph-lock icon-left"></i>
+                            <input type="password" id="password" name="password" class="form-input" placeholder="Enter password" required>
+                            <i class="ph ph-eye-slash icon-right toggle-password"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="remember">
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: 8px; width: 100%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">Sign in</button>
+                </form>
+
+                <div class="auth-footer">
+                    Don't have an account? <a href="{% url 'signup' %}{% if next %}?next={{ next|urlencode }}{% endif %}">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password toggle logic
+        document.querySelectorAll('.toggle-password').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    this.classList.remove('ph-eye-slash');
+                    this.classList.add('ph-eye');
+                } else {
+                    input.type = 'password';
+                    this.classList.remove('ph-eye');
+                    this.classList.add('ph-eye-slash');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

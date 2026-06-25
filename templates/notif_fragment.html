@@ -1,0 +1,34 @@
+<div class="notification-wrapper">
+    <button class="notification-bell" id="notificationBtn">
+        <i class="ph ph-bell"></i>
+        {% if unread_notifications_count > 0 %}
+        <span class="notification-badge">{{ unread_notifications_count }}</span>
+        {% endif %}
+    </button>
+    <div class="notification-dropdown" id="notificationDropdown">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <span class="mark-read"><a href="{% url 'mark_all_notifications_read' %}" style="color: inherit; text-decoration: none;">Mark all as read</a></span>
+        </div>
+        <div class="notification-list">
+            {% for notification in recent_notifications %}
+            <div class="notification-item {% if not notification.is_read %}unread{% endif %}" data-id="{{ notification.id }}" data-link="{{ notification.link|default:'' }}">
+                 <div class="notification-item-title">{{ notification.message|truncatechars:30 }}</div>
+                 <div class="notification-item-msg">{{ notification.message }}</div>
+                 <div class="notification-item-meta">
+                     <span class="notification-item-time">{{ notification.created_at|timesince }} ago</span>
+                     <span class="notification-item-link">View</span>
+                 </div>
+            </div>
+            {% empty %}
+            <div class="notification-empty" style="padding: 20px; text-align: center; color: #666;">
+                No notifications yet.
+            </div>
+            {% endfor %}
+        </div>
+        <div class="notification-footer">
+            <a href="#">View all notifications</a>
+        </div>
+    </div>
+</div>
+

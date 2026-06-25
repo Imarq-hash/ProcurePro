@@ -38,7 +38,17 @@ if SECRET_KEY.startswith('django-insecure'):
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # SECURITY: Allowed hosts from environment
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+    if host.strip()
+]
+ALLOWED_HOSTS.extend([
+    '.onrender.com',
+    'procurepro-eb3o.onrender.com',
+])
+if os.environ.get('RENDER_EXTERNAL_HOSTNAME'):
+    ALLOWED_HOSTS.append(os.environ['RENDER_EXTERNAL_HOSTNAME'])
 # Ensure Django test client host is allowed during automated tests
 if 'testserver' not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append('testserver')

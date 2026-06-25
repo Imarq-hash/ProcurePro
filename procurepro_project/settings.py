@@ -19,6 +19,8 @@ load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+LOG_DIR = BASE_DIR / 'logs'
+LOG_DIR.mkdir(exist_ok=True)
 
 
 # Quick-start development settings - unsuitable for production
@@ -241,7 +243,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': BASE_DIR / 'logs' / 'procurepro.log',
+            'filename': LOG_DIR / 'procurepro.log',
             'maxBytes': 1024 * 1024 * 10,  # 10MB
             'backupCount': 5,
             'formatter': 'verbose',
@@ -249,7 +251,7 @@ LOGGING = {
         'security_file': {
             'level': 'WARNING',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': BASE_DIR / 'logs' / 'security.log',
+            'filename': LOG_DIR / 'security.log',
             'maxBytes': 1024 * 1024 * 10,  # 10MB
             'backupCount': 5,
             'formatter': 'verbose',

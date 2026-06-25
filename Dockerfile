@@ -1,5 +1,5 @@
 # Use official Python runtime as base image
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
@@ -24,17 +24,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project files
 COPY . .
 
-# Create logs directory
+# Create logs directory before Django initializes logging
 RUN mkdir -p logs
 
 # Collect static files
-RUN python manage.py collectstatic --noinput || true
-
-# Run migrations
-RUN python manage.py migrate --noinput || true
+RUN python manage.py collectstatic --noinput
 
 # Expose port
 EXPOSE 10000
 
-# Run gunicorn
-CMD ["gunicorn", "procurepro_project.wsgi:application", "--bind", "0.0.0.0:10000", "--workers", "4", "--timeout", "120"]
+# Run migrations, then start gunicorn
+CMD ["sh", "-c", "python manage.py migrate --noinput && gunicorn procurepro_project.wsgi:application --bind 0.0.0.0:${PORT:-10000} --workers 4 --timeout 120"]

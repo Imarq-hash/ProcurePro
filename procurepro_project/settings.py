@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
+import importlib.util
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -52,7 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'livereload',
 
     # Custom Apps
     'procurement',
@@ -66,10 +66,16 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'livereload.middleware.LiveReloadScript',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
 ]
+
+if DEBUG and importlib.util.find_spec('livereload'):
+    INSTALLED_APPS.append('livereload')
+    MIDDLEWARE.insert(
+        MIDDLEWARE.index('django.middleware.clickjacking.XFrameOptionsMiddleware'),
+        'livereload.middleware.LiveReloadScript',
+    )
 
 ROOT_URLCONF = 'procurepro_project.urls'
 

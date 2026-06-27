@@ -1,0 +1,2557 @@
+[
+{
+  "model": "procurement.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$ufXthe8K3CwEwUBrrK0Npg$zbyuCEZhpL6vUWnFw+85vejF1rzl5HWEih7pYrYOfZA=",
+    "last_login": "2026-05-25T00:16:54.299Z",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-05-25T00:16:51.184Z",
+    "email": "admin3@x.com",
+    "role": "ADMIN",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$EtCtO5M1dnRBRuwVGEbWY4$XwM5qryD+mTKeXgwlv+mpMgcqTcMq9ZirPxKVwNbM+E=",
+    "last_login": "2026-06-24T10:46:57.887Z",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-05-25T00:34:14.851Z",
+    "email": "admin@procurepro.com",
+    "role": "ADMIN",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Ar6fcL5xf4Fh1C6s83WanM$hDwEsUEIts9NYYWwOUHmZAhfRS0EB4go1AejUxSMNRQ=",
+    "last_login": null,
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-05-26T04:20:37.404Z",
+    "email": "admin_test@procurepro.com",
+    "role": "ADMIN",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$WcGZb2GdQL81Of9MveNQvM$N7jBpbGPhbq1XUMVkQIDILUQMAuc4kiRNs9Eg3HzAgs=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-30T01:38:09.127Z",
+    "email": "apex@example.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$miQSZGjveeq9IaUDl6FWqK$0fUCy4cP9d82nroNYr3X8XOIgJzq5hil1zYJ8RGAb6c=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-30T01:38:15.800Z",
+    "email": "stivo@example.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Q6AbhgkWCcO25D7z27UToV$zMnF7UJv1JwZnOrpHz7pC5407pJqfQ+4S7FtgjNIEZY=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-30T01:38:24.523Z",
+    "email": "quansah@example.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$xFU53azWhXngjiBTDK6udL$n5Df8kZSIekPQly4foc6OF4s7oKu7dZquqDEl/v/T9o=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-30T01:38:32.688Z",
+    "email": "valor@example.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$UmY3IyxomVk3ikiVplf9uc$jf3390jEkPjdaYGQ70icZ9uxbEbr5zeEB0afWIv7pTo=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-30T01:38:39.700Z",
+    "email": "fayol@example.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Cx1fq7UuKmAem71Gp9v0C4$fC8Or1yZmrZ8FXFft2ST6PbFD/tDW63yKTq5uPYbHaA=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-30T01:38:47.381Z",
+    "email": "ave@example.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$f46kQmvtwNnsjukzd8D1bC$aFbuGOKa/GVNo789lrmNIpu6S2l1/U2FlXtI+4lct70=",
+    "last_login": "2026-06-20T04:58:48.974Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-20T03:31:38.680Z",
+    "email": "texasandco@gmail.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$rwCREDLFBGlRUrL2bVbVap$gICWrhFrjgQfyVi+7QutbZ8gyHGcnkrBvynB2f49glU=",
+    "last_login": "2026-06-25T09:53:44.704Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-22T04:30:07.011Z",
+    "email": "texasandco26@gmail.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$5DUsdF0aeY9WVUFUIkmHM2$OYQsby003GsC973zsiBAm7r3U80s3Fo8iuWQuAy6YM8=",
+    "last_login": "2026-06-23T10:24:46.693Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-23T10:16:07.520Z",
+    "email": "texas26@gmail.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$9xK7a62aVmzCdzVZ9FRhS1$0CgHxRRtlI/Sz96qqv7UigI7i1kSbdfLkV9t/dZ8QHU=",
+    "last_login": "2026-06-24T10:17:11.257Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-23T13:10:17.383Z",
+    "email": "imarqquainoo@gmail.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$pj4zMDlmR65HZvkgvA8xJG$L45GBpjgfgTqbFDXi3mi07JHohKweGzldX1ZHOpmK7M=",
+    "last_login": "2026-06-23T13:19:07.419Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-23T13:18:55.066Z",
+    "email": "test_contractor@example.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 19,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$wKO68807xitweh9ibyIlAM$5PgVqmPs6oE1BMWFb/BBprcJg1lkD3PDqkDsWWmzUMw=",
+    "last_login": "2026-06-23T13:23:37.348Z",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-23T13:23:32.898Z",
+    "email": "rootadmin@example.com",
+    "role": "ADMIN",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 20,
+  "fields": {
+    "password": "",
+    "last_login": "2026-06-23T13:23:37.527Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-23T13:23:37.471Z",
+    "email": "normaluser@example.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 21,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$tC0bUkec8ofQdCxsg3Leki$uzumb7tpWqv7HvzZn0pMNuj/mbVXpZm3kLvaoTdMI+s=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Kwame",
+    "last_name": "Mensah",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-27T15:30:27.744Z",
+    "email": "admin@apexstructural.com.gh",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 22,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Mil3WoDFQB4z3z5ovdIwak$fLzioKlZYK+S3CubXtVVczFaRGHC0VEfRiWN1fg59tY=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Sarah",
+    "last_name": "Ofori",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-27T15:30:31.669Z",
+    "email": "info@horizontech.io",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 23,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$F1E3nQeoLpWFn7gPXtcAl2$eDd+2QM5JT7f2gekiZ1cFA0kZlsnbUwOyW3Cu041HZY=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "David",
+    "last_name": "Ansah",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-27T15:30:36.467Z",
+    "email": "procurement@buildrightlogistics.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 24,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$uaqOX0JufAcYQF7QdhhRyP$OaViTNCPLppzQR0NSNTYKcOkhq5V/gz2zF1K7oaEi2Y=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Abena",
+    "last_name": "Appiah",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-27T15:30:45.027Z",
+    "email": "hello@ecogreenfacilities.com",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 25,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$WIw6ylPgZJ1HNijXV7TGOe$EJovaV7BXlWpxdyvAvud6ibk9POXT1gtq3YuJq4BsDc=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Emmanuel",
+    "last_name": "Tetteh",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-27T15:30:50.570Z",
+    "email": "bids@zenithelectricals.net",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.user",
+  "pk": 26,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$k2SxPauv3FxdAwQ1vpVB4o$4GeDheetkCggmnaGpiNH1NWYl4ZUXrX4whh3caYmVu4=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Dr.",
+    "last_name": "Grace Addo",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-27T15:30:55.949Z",
+    "email": "supply@vanguardhealth.com.gh",
+    "role": "CONTRACTOR",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 4,
+  "fields": {
+    "user": 8,
+    "company_name": "Apex Structural Ltd",
+    "license_number": "DE-9921-X",
+    "phone": "+233 20 123 4567",
+    "address": "14 Independence Avenue, Accra",
+    "specialization": "CONSTRUCTION",
+    "experience_years": 12,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 5,
+  "fields": {
+    "user": 9,
+    "company_name": "Stivo & Co Ltd",
+    "license_number": "EL-3341-Y",
+    "phone": "+233 24 555 1234",
+    "address": "Kumasi, Ashanti Region",
+    "specialization": "ELECTRICAL",
+    "experience_years": 5,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 6,
+  "fields": {
+    "user": 10,
+    "company_name": "K Quansah Ltd",
+    "license_number": "PL-1122-Z",
+    "phone": "+233 27 888 9999",
+    "address": "Tema, Greater Accra",
+    "specialization": "PLUMBING",
+    "experience_years": 8,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 7,
+  "fields": {
+    "user": 11,
+    "company_name": "Women of Valor Ltd",
+    "license_number": "IN-7766-W",
+    "phone": "+233 50 111 2222",
+    "address": "Wa, Upper West",
+    "specialization": "INFRASTRUCTURE",
+    "experience_years": 10,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 8,
+  "fields": {
+    "user": 12,
+    "company_name": "Fayol Construction",
+    "license_number": "CO-5544-V",
+    "phone": "+233 26 777 8888",
+    "address": "Madina, Accra",
+    "specialization": "CONSTRUCTION",
+    "experience_years": 4,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 9,
+  "fields": {
+    "user": 13,
+    "company_name": "Ave Konstrakz",
+    "license_number": "OT-2233-U",
+    "phone": "+233 20 999 0000",
+    "address": "Cape Coast, Central Region",
+    "specialization": "OTHER",
+    "experience_years": 7,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 10,
+  "fields": {
+    "user": 16,
+    "company_name": "Texas and Co",
+    "license_number": null,
+    "phone": "0535300614",
+    "address": "P.O.Box GM Madina-Accra",
+    "specialization": "Wiring",
+    "experience_years": 4,
+    "status": "PENDING"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 11,
+  "fields": {
+    "user": 17,
+    "company_name": "Texas and Co",
+    "license_number": null,
+    "phone": "0248148002",
+    "address": "P.O.Box GM Madina-Accra",
+    "specialization": "Wiring",
+    "experience_years": 5,
+    "status": "PENDING"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 12,
+  "fields": {
+    "user": 18,
+    "company_name": "TestCo",
+    "license_number": null,
+    "phone": null,
+    "address": null,
+    "specialization": null,
+    "experience_years": null,
+    "status": "PENDING"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 13,
+  "fields": {
+    "user": 21,
+    "company_name": "Apex Structural Ltd.",
+    "license_number": "CS1209384",
+    "phone": "+233 24 123 4567",
+    "address": "East Legon, Accra, Ghana",
+    "specialization": "Civil Engineering & Road Construction",
+    "experience_years": 15,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 14,
+  "fields": {
+    "user": 22,
+    "company_name": "Horizon Tech Solutions",
+    "license_number": "CS9948271",
+    "phone": "+233 20 987 6543",
+    "address": "Airport Residential Area, Accra, Ghana",
+    "specialization": "IT Infrastructure & Software Supply",
+    "experience_years": 8,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 15,
+  "fields": {
+    "user": 23,
+    "company_name": "BuildRight Logistics",
+    "license_number": "CS4455667",
+    "phone": "+233 55 444 3322",
+    "address": "Tema Industrial Area, Tema, Ghana",
+    "specialization": "Heavy Equipment & Material Supply",
+    "experience_years": 10,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 16,
+  "fields": {
+    "user": 24,
+    "company_name": "EcoGreen Facilities",
+    "license_number": "CS7788990",
+    "phone": "+233 27 111 2233",
+    "address": "Kumasi, Ashanti Region, Ghana",
+    "specialization": "Facilities Management & Janitorial Services",
+    "experience_years": 7,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 17,
+  "fields": {
+    "user": 25,
+    "company_name": "Zenith Electricals",
+    "license_number": "CS2233445",
+    "phone": "+233 50 555 8899",
+    "address": "Spintex Road, Accra, Ghana",
+    "specialization": "Electrical Engineering & Solar Power",
+    "experience_years": 12,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.contractorprofile",
+  "pk": 18,
+  "fields": {
+    "user": 26,
+    "company_name": "Vanguard Health",
+    "license_number": "CS1122334",
+    "phone": "+233 24 777 9900",
+    "address": "Ridge, Accra, Ghana",
+    "specialization": "Medical Equipment & Pharmaceuticals",
+    "experience_years": 9,
+    "status": "APPROVED"
+  }
+},
+{
+  "model": "procurement.adminprofile",
+  "pk": 1,
+  "fields": {
+    "user": 4,
+    "name": "Test Admin",
+    "department": "Procurement"
+  }
+},
+{
+  "model": "procurement.adminprofile",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "name": "ProcurePro Admin",
+    "department": "Central Procurement"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 2,
+  "fields": {
+    "admin": 2,
+    "title": "Public School Renovation & Expansion",
+    "description": "Renovation of existing facilities and construction of new wings for a public elementary school, including modern classrooms and playground.",
+    "location": "Accra",
+    "budget_min": "4200000.00",
+    "budget_max": "5000000.00",
+    "category": "CONSTRUCTION",
+    "deadline": "2026-06-29T01:38:54.875Z",
+    "status": "OPEN",
+    "created_at": "2026-05-30T01:38:54.875Z",
+    "updated_at": "2026-05-30T01:38:54.875Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 3,
+  "fields": {
+    "admin": 2,
+    "title": "National Highway Resurfacing",
+    "description": "Comprehensive resurfacing of 50km of the main national highway, including drainage improvements and road markings.",
+    "location": "Tema",
+    "budget_min": "15000000.00",
+    "budget_max": "20000000.00",
+    "category": "INFRASTRUCTURE",
+    "deadline": "2026-07-29T01:38:55.928Z",
+    "status": "OPEN",
+    "created_at": "2026-05-30T01:38:55.928Z",
+    "updated_at": "2026-05-30T01:38:55.928Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 4,
+  "fields": {
+    "admin": 2,
+    "title": "Regional Hospital Electrical Upgrade",
+    "description": "Complete overhaul of the electrical grid for the regional hospital to support new MRI and intensive care units.",
+    "location": "Kumasi",
+    "budget_min": "800000.00",
+    "budget_max": "1200000.00",
+    "category": "ELECTRICAL",
+    "deadline": "2026-07-14T01:38:56.205Z",
+    "status": "OPEN",
+    "created_at": "2026-05-30T01:38:56.205Z",
+    "updated_at": "2026-05-30T01:38:56.206Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 5,
+  "fields": {
+    "admin": 2,
+    "title": "Municipal Water Supply Extension",
+    "description": "Extension of the municipal water supply lines to newly developed residential areas, including pumping stations.",
+    "location": "Madina",
+    "budget_min": "2500000.00",
+    "budget_max": "3000000.00",
+    "category": "PLUMBING",
+    "deadline": "2026-08-28T01:38:57.190Z",
+    "status": "OPEN",
+    "created_at": "2026-05-30T01:38:57.190Z",
+    "updated_at": "2026-05-30T01:38:57.190Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 6,
+  "fields": {
+    "admin": 2,
+    "title": "University Library Construction",
+    "description": "Construction of a new 3-story modern library complex for the university campus.",
+    "location": "Cape Coast",
+    "budget_min": "8500000.00",
+    "budget_max": "10000000.00",
+    "category": "CONSTRUCTION",
+    "deadline": "2026-09-27T01:38:57.904Z",
+    "status": "OPEN",
+    "created_at": "2026-05-30T01:38:57.904Z",
+    "updated_at": "2026-05-30T01:38:57.904Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 7,
+  "fields": {
+    "admin": 2,
+    "title": "Solar Farm Installation",
+    "description": "Installation of a 5MW solar farm to supplement the national grid in the northern sector.",
+    "location": "Wa",
+    "budget_min": "5000000.00",
+    "budget_max": "7500000.00",
+    "category": "ELECTRICAL",
+    "deadline": "2026-11-26T01:38:58.507Z",
+    "status": "OPEN",
+    "created_at": "2026-05-30T01:38:58.507Z",
+    "updated_at": "2026-05-30T01:38:58.507Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 8,
+  "fields": {
+    "admin": 2,
+    "title": "Construction of 50-Bed District Hospital",
+    "description": "Procuring Entity: Ministry of Health, Ghana\n\nScope of Work: Full structural construction, plumbing, electrical wiring, and landscaping for a modern 50-bed healthcare facility. Includes the construction of an administrative block, OPD, surgical theater, and a small staff quarters.",
+    "location": "Nsawam, Eastern Region",
+    "budget_min": "15000000.00",
+    "budget_max": "20000000.00",
+    "category": "CONSTRUCTION",
+    "deadline": "2026-08-15T17:00:00Z",
+    "status": "OPEN",
+    "created_at": "2026-06-27T15:39:36.840Z",
+    "updated_at": "2026-06-27T15:39:36.840Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 9,
+  "fields": {
+    "admin": 2,
+    "title": "Supply and Installation of Enterprise Server Infrastructure",
+    "description": "Procuring Entity: National Identification Authority (NIA)\n\nScope of Work: Procurement, delivery, and installation of 15 high-performance enterprise blade servers, UPS backup systems, and associated networking switches. The winning contractor must provide a 2-year warranty and quarterly maintenance.",
+    "location": "Accra, Greater Accra",
+    "budget_min": "2500000.00",
+    "budget_max": "3200000.00",
+    "category": "OTHER",
+    "deadline": "2026-07-30T17:00:00Z",
+    "status": "OPEN",
+    "created_at": "2026-06-27T15:39:36.896Z",
+    "updated_at": "2026-06-27T15:39:36.896Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 10,
+  "fields": {
+    "admin": 2,
+    "title": "Rehabilitation and Tarring of Feeder Roads (25km)",
+    "description": "Procuring Entity: Department of Feeder Roads\n\nScope of Work: Grading, base laying, and bitumen surfacing of 25 kilometers of rural feeder roads to facilitate the transportation of agricultural produce. Includes the construction of 4 concrete culverts for drainage.",
+    "location": "Sunyani, Bono Region",
+    "budget_min": "8000000.00",
+    "budget_max": "12000000.00",
+    "category": "INFRASTRUCTURE",
+    "deadline": "2026-08-05T17:00:00Z",
+    "status": "OPEN",
+    "created_at": "2026-06-27T15:39:36.959Z",
+    "updated_at": "2026-06-27T15:39:36.959Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 11,
+  "fields": {
+    "admin": 2,
+    "title": "Procurement of 30 Heavy-Duty Agricultural Tractors",
+    "description": "Procuring Entity: Ministry of Food and Agriculture\n\nScope of Work: Supply and delivery of 30 brand-new 75HP 4WD agricultural tractors with matching implements, including ploughs and harrows. Supplier must offer operator training and an initial supply of fast-moving spare parts.",
+    "location": "Tamale, Northern Region",
+    "budget_min": "4500000.00",
+    "budget_max": "5500000.00",
+    "category": "OTHER",
+    "deadline": "2026-07-20T17:00:00Z",
+    "status": "OPEN",
+    "created_at": "2026-06-27T15:39:37.025Z",
+    "updated_at": "2026-06-27T15:39:37.025Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 12,
+  "fields": {
+    "admin": 2,
+    "title": "Annual Security and Janitorial Services Contract",
+    "description": "Procuring Entity: Ghana Revenue Authority (GRA)\n\nScope of Work: Provision of 24/7 armed and unarmed security personnel, comprehensive CCTV monitoring, and daily janitorial/cleaning services for a 10-story corporate headquarters complex. Contract duration is 24 months, renewable based on performance.",
+    "location": "National Headquarters, Accra",
+    "budget_min": "1200000.00",
+    "budget_max": "1200000.00",
+    "category": "OTHER",
+    "deadline": "2026-07-25T17:00:00Z",
+    "status": "OPEN",
+    "created_at": "2026-06-27T15:39:37.075Z",
+    "updated_at": "2026-06-27T15:39:37.075Z"
+  }
+},
+{
+  "model": "procurement.tender",
+  "pk": 13,
+  "fields": {
+    "admin": 2,
+    "title": "Off-Grid Solar Power Electrification for Rural Schools",
+    "description": "Procuring Entity: Ministry of Education\n\nScope of Work: Design, supply, and installation of 10kW off-grid solar PV systems complete with lithium-ion battery storage banks for 15 selected rural basic schools. The project includes wiring the classrooms and installing energy-efficient LED lighting.",
+    "location": "Various districts in the Upper West Region",
+    "budget_min": "3000000.00",
+    "budget_max": "3800000.00",
+    "category": "ELECTRICAL",
+    "deadline": "2026-08-10T17:00:00Z",
+    "status": "OPEN",
+    "created_at": "2026-06-27T15:39:37.127Z",
+    "updated_at": "2026-06-27T15:39:37.127Z"
+  }
+},
+{
+  "model": "procurement.bid",
+  "pk": 1,
+  "fields": {
+    "tender": 2,
+    "contractor": 12,
+    "amount": "500.00",
+    "duration": "6 Months",
+    "proposal_text": "Test proposal",
+    "status": "SUBMITTED",
+    "submitted_at": "2026-06-23T13:18:57.145Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "message": "New Tender Request: 'Electrical Wiring' from Imarq.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-25T00:44:27.329Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "message": "New Tender Request: 'Electrical Wiring' from Imarq.",
+    "is_read": true,
+    "link": null,
+    "created_at": "2026-05-25T00:44:27.346Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "message": "New Tender Request: 'Test Rehabilitation Tender' from Test Contractor Ltd.",
+    "is_read": false,
+    "link": "/admin/tender-requests/3/review/",
+    "created_at": "2026-05-26T04:20:39.129Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 4,
+  "fields": {
+    "user": 3,
+    "message": "New Tender Request: 'Test Rehabilitation Tender' from Test Contractor Ltd.",
+    "is_read": true,
+    "link": "/admin/tender-requests/3/review/",
+    "created_at": "2026-05-26T04:20:39.146Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 5,
+  "fields": {
+    "user": 4,
+    "message": "New Tender Request: 'Test Rehabilitation Tender' from Test Contractor Ltd.",
+    "is_read": false,
+    "link": "/admin/tender-requests/3/review/",
+    "created_at": "2026-05-26T04:20:39.163Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 7,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: Public School Renovation & Expansion. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:55.103Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 8,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: Public School Renovation & Expansion. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:55.251Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 9,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: Public School Renovation & Expansion. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:55.355Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 10,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: Public School Renovation & Expansion. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:55.695Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 11,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: Public School Renovation & Expansion. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:55.869Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 12,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: Public School Renovation & Expansion. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:55.895Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 13,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: National Highway Resurfacing. Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.009Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 14,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: National Highway Resurfacing. Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.087Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 15,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: National Highway Resurfacing. Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.109Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 16,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: National Highway Resurfacing. Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.127Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 17,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: National Highway Resurfacing. Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.151Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 18,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: National Highway Resurfacing. Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.183Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 19,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: Regional Hospital Electrical Upgrade. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.234Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 20,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: Regional Hospital Electrical Upgrade. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.252Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 21,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: Regional Hospital Electrical Upgrade. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.271Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 22,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: Regional Hospital Electrical Upgrade. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.292Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 23,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: Regional Hospital Electrical Upgrade. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:56.800Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 24,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: Regional Hospital Electrical Upgrade. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.039Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 25,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: Municipal Water Supply Extension. Category: Plumbing.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.287Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 26,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: Municipal Water Supply Extension. Category: Plumbing.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.536Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 27,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: Municipal Water Supply Extension. Category: Plumbing.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.789Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 28,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: Municipal Water Supply Extension. Category: Plumbing.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.832Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 29,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: Municipal Water Supply Extension. Category: Plumbing.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.858Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 30,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: Municipal Water Supply Extension. Category: Plumbing.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.884Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 31,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: University Library Construction. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.931Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 32,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: University Library Construction. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.955Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 33,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: University Library Construction. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.973Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 34,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: University Library Construction. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:57.991Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 35,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: University Library Construction. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:58.017Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 36,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: University Library Construction. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:58.344Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 37,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: Solar Farm Installation. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:58.533Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 38,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: Solar Farm Installation. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:58.553Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 39,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: Solar Farm Installation. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:58.573Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 40,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: Solar Farm Installation. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:58.592Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 41,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: Solar Farm Installation. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:58.614Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 42,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: Solar Farm Installation. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-05-30T01:38:58.749Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 43,
+  "fields": {
+    "user": 2,
+    "message": "New Bid submitted for Public School Renovation & Expansion by TestCo.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-23T13:18:57.173Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 44,
+  "fields": {
+    "user": 3,
+    "message": "New Bid submitted for Public School Renovation & Expansion by TestCo.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-23T13:18:57.193Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 45,
+  "fields": {
+    "user": 4,
+    "message": "New Bid submitted for Public School Renovation & Expansion by TestCo.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-23T13:18:57.211Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 46,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.848Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 47,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.850Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 48,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.851Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 49,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.853Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 50,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.854Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 51,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.856Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 52,
+  "fields": {
+    "user": 14,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.857Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 53,
+  "fields": {
+    "user": 15,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.859Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 54,
+  "fields": {
+    "user": 16,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.860Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 55,
+  "fields": {
+    "user": 17,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.865Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 56,
+  "fields": {
+    "user": 18,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.868Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 57,
+  "fields": {
+    "user": 20,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.869Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 58,
+  "fields": {
+    "user": 21,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.871Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 59,
+  "fields": {
+    "user": 22,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.872Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 60,
+  "fields": {
+    "user": 23,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.874Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 61,
+  "fields": {
+    "user": 24,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.876Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 62,
+  "fields": {
+    "user": 25,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.879Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 63,
+  "fields": {
+    "user": 26,
+    "message": "New Tender Posted: Construction of 50-Bed District Hospital. Category: Construction.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.882Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 64,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.903Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 65,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.904Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 66,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.906Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 67,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.907Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 68,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.910Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 69,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.911Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 70,
+  "fields": {
+    "user": 14,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.915Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 71,
+  "fields": {
+    "user": 15,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.917Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 72,
+  "fields": {
+    "user": 16,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.918Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 73,
+  "fields": {
+    "user": 17,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.920Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 74,
+  "fields": {
+    "user": 18,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.922Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 75,
+  "fields": {
+    "user": 20,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.924Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 76,
+  "fields": {
+    "user": 21,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.926Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 77,
+  "fields": {
+    "user": 22,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.928Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 78,
+  "fields": {
+    "user": 23,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.932Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 79,
+  "fields": {
+    "user": 24,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.933Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 80,
+  "fields": {
+    "user": 25,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.935Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 81,
+  "fields": {
+    "user": 26,
+    "message": "New Tender Posted: Supply and Installation of Enterprise Server Infrastructure. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.937Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 82,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.970Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 83,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.975Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 84,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.979Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 85,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.982Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 86,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.984Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 87,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.985Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 88,
+  "fields": {
+    "user": 14,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.987Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 89,
+  "fields": {
+    "user": 15,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.990Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 90,
+  "fields": {
+    "user": 16,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.993Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 91,
+  "fields": {
+    "user": 17,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.994Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 92,
+  "fields": {
+    "user": 18,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.996Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 93,
+  "fields": {
+    "user": 20,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:36.999Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 94,
+  "fields": {
+    "user": 21,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.000Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 95,
+  "fields": {
+    "user": 22,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.002Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 96,
+  "fields": {
+    "user": 23,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.004Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 97,
+  "fields": {
+    "user": 24,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.006Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 98,
+  "fields": {
+    "user": 25,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.008Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 99,
+  "fields": {
+    "user": 26,
+    "message": "New Tender Posted: Rehabilitation and Tarring of Feeder Roads (25km). Category: Infrastructure.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.011Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 100,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.032Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 101,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.033Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 102,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.035Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 103,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.036Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 104,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.038Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 105,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.039Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 106,
+  "fields": {
+    "user": 14,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.041Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 107,
+  "fields": {
+    "user": 15,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.042Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 108,
+  "fields": {
+    "user": 16,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.043Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 109,
+  "fields": {
+    "user": 17,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.045Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 110,
+  "fields": {
+    "user": 18,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.048Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 111,
+  "fields": {
+    "user": 20,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.050Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 112,
+  "fields": {
+    "user": 21,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.052Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 113,
+  "fields": {
+    "user": 22,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.053Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 114,
+  "fields": {
+    "user": 23,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.055Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 115,
+  "fields": {
+    "user": 24,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.057Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 116,
+  "fields": {
+    "user": 25,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.059Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 117,
+  "fields": {
+    "user": 26,
+    "message": "New Tender Posted: Procurement of 30 Heavy-Duty Agricultural Tractors. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.061Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 118,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.082Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 119,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.084Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 120,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.086Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 121,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.087Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 122,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.089Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 123,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.090Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 124,
+  "fields": {
+    "user": 14,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.092Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 125,
+  "fields": {
+    "user": 15,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.093Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 126,
+  "fields": {
+    "user": 16,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.095Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 127,
+  "fields": {
+    "user": 17,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.098Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 128,
+  "fields": {
+    "user": 18,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.100Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 129,
+  "fields": {
+    "user": 20,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.102Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 130,
+  "fields": {
+    "user": 21,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.103Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 131,
+  "fields": {
+    "user": 22,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.105Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 132,
+  "fields": {
+    "user": 23,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.107Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 133,
+  "fields": {
+    "user": 24,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.108Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 134,
+  "fields": {
+    "user": 25,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.110Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 135,
+  "fields": {
+    "user": 26,
+    "message": "New Tender Posted: Annual Security and Janitorial Services Contract. Category: Other.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.111Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 136,
+  "fields": {
+    "user": 8,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.139Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 137,
+  "fields": {
+    "user": 9,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.142Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 138,
+  "fields": {
+    "user": 10,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.145Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 139,
+  "fields": {
+    "user": 11,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.150Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 140,
+  "fields": {
+    "user": 12,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.153Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 141,
+  "fields": {
+    "user": 13,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.154Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 142,
+  "fields": {
+    "user": 14,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.156Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 143,
+  "fields": {
+    "user": 15,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.158Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 144,
+  "fields": {
+    "user": 16,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.159Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 145,
+  "fields": {
+    "user": 17,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.161Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 146,
+  "fields": {
+    "user": 18,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.166Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 147,
+  "fields": {
+    "user": 20,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.169Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 148,
+  "fields": {
+    "user": 21,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.171Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 149,
+  "fields": {
+    "user": 22,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.173Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 150,
+  "fields": {
+    "user": 23,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.174Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 151,
+  "fields": {
+    "user": 24,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.176Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 152,
+  "fields": {
+    "user": 25,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.179Z"
+  }
+},
+{
+  "model": "procurement.notification",
+  "pk": 153,
+  "fields": {
+    "user": 26,
+    "message": "New Tender Posted: Off-Grid Solar Power Electrification for Rural Schools. Category: Electrical/Energy.",
+    "is_read": false,
+    "link": null,
+    "created_at": "2026-06-27T15:39:37.182Z"
+  }
+},
+{
+  "model": "procurement.tenderrequest",
+  "pk": 1,
+  "fields": {
+    "name": "Imarq",
+    "email": "irene17quainoo@gmail.com",
+    "tender_title": "Road rehabilitation",
+    "description": "nnjnfjngnn bv",
+    "document": "tender_requests/DOC-20251113-WA0125..docx",
+    "created_at": "2026-04-30T01:38:20.220Z",
+    "is_processed": false,
+    "status": "PENDING"
+  }
+},
+{
+  "model": "procurement.tenderrequest",
+  "pk": 2,
+  "fields": {
+    "name": "Imarq",
+    "email": "imarqquainoo@gmail.com",
+    "tender_title": "Electrical Wiring",
+    "description": "xnggvfhg",
+    "document": "",
+    "created_at": "2026-05-25T00:44:27.311Z",
+    "is_processed": false,
+    "status": "PENDING"
+  }
+},
+{
+  "model": "procurement.tenderrequest",
+  "pk": 3,
+  "fields": {
+    "name": "Test Contractor Ltd",
+    "email": "contractor@test.com",
+    "tender_title": "Test Rehabilitation Tender",
+    "description": "A description for the test rehabilitation tender.",
+    "document": "",
+    "created_at": "2026-05-26T04:20:39.110Z",
+    "is_processed": true,
+    "status": "APPROVED"
+  }
+}
+]

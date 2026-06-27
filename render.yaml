@@ -14,12 +14,3 @@ services:
         value: ".onrender.com"
       - key: SECURE_SSL_REDIRECT
         value: "True"
-      - key: DATABASE_URL
-        fromDatabase:
-          name: procurepro-db
-          property: connectionString
-databases:
-  - name: procurepro-db
-    databaseName: procurepro
-    user: procurepro
-    plan: free

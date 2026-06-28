@@ -170,4 +170,77 @@ document.addEventListener('DOMContentLoaded', function() {
             if (badge) badge.style.display = 'none';
         });
     }
+
+    // --- SLIDERS LOGIC ---
+
+    // 1. Hero Slider (Images, Text, and Dots)
+    const heroSlides = document.querySelectorAll('.hero-slider .slide');
+    const heroTextSlides = document.querySelectorAll('.hero-text-slide');
+    const heroDots = document.querySelectorAll('.slider-dots .dot');
+    let currentHeroIndex = 0;
+    let heroInterval;
+
+    function showHeroSlide(index) {
+        if (!heroSlides.length) return;
+        
+        // Remove active class from all
+        heroSlides.forEach(slide => slide.classList.remove('active'));
+        if (heroTextSlides.length) heroTextSlides.forEach(slide => slide.classList.remove('active'));
+        if (heroDots.length) heroDots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current
+        heroSlides[index].classList.add('active');
+        if (heroTextSlides.length && heroTextSlides[index]) heroTextSlides[index].classList.add('active');
+        if (heroDots.length && heroDots[index]) heroDots[index].classList.add('active');
+    }
+
+    function nextHeroSlide() {
+        if (!heroSlides.length) return;
+        currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
+        showHeroSlide(currentHeroIndex);
+    }
+
+    if (heroSlides.length > 0) {
+        heroInterval = setInterval(nextHeroSlide, 5000); // Auto-advance every 5 seconds
+
+        // Allow clicking on dots to navigate
+        heroDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(heroInterval); // Pause auto-rotation on interaction
+                currentHeroIndex = index;
+                showHeroSlide(currentHeroIndex);
+                heroInterval = setInterval(nextHeroSlide, 5000); // Restart auto-rotation
+            });
+        });
+    }
+
+    // 2. Project Success Stories Slider
+    const projectSlider = document.getElementById('projectSlider');
+    const projectPrev = document.getElementById('projectPrev');
+    const projectNext = document.getElementById('projectNext');
+    let currentProjectIndex = 0;
+
+    if (projectSlider && projectPrev && projectNext) {
+        const projectItems = projectSlider.querySelectorAll('.project-slide-item');
+        const totalProjects = projectItems.length;
+
+        function updateProjectSlider() {
+            projectSlider.style.transform = `translateX(-${currentProjectIndex * 100}%)`;
+        }
+
+        projectNext.addEventListener('click', () => {
+            if (currentProjectIndex < totalProjects - 1) {
+                currentProjectIndex++;
+                updateProjectSlider();
+            }
+        });
+
+        projectPrev.addEventListener('click', () => {
+            if (currentProjectIndex > 0) {
+                currentProjectIndex--;
+                updateProjectSlider();
+            }
+        });
+    }
+
 });

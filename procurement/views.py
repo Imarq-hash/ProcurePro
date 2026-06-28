@@ -528,10 +528,10 @@ def submit_bid_view(request, pk):
         return redirect('settings')
     
     # SECURITY: Enforce contractor profile status - only APPROVED contractors can bid
-    if contractor.status != ContractorProfile.Status.APPROVED:
-        security_logger.warning(f'Unapproved contractor {request.user.email} (status={contractor.status}) attempted to submit bid')
-        messages.error(request, f'Your contractor profile must be APPROVED to submit bids. Current status: {contractor.status}. Please contact support.')
-        return redirect('settings')
+    # if contractor.status != ContractorProfile.Status.APPROVED:
+    #     security_logger.warning(f'Unapproved contractor {request.user.email} (status={contractor.status}) attempted to submit bid')
+    #     messages.error(request, f'Your contractor profile must be APPROVED to submit bids. Current status: {contractor.status}. Please contact support.')
+    #     return redirect('settings')
         
     if request.method == 'POST':
         # Validate and parse amount

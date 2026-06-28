@@ -524,8 +524,11 @@ def submit_bid_view(request, pk):
     try:
         contractor = request.user.contractor_profile
     except ContractorProfile.DoesNotExist:
-        messages.error(request, 'You must complete your contractor profile before submitting bids.')
-        return redirect('settings')
+        contractor = ContractorProfile.objects.create(
+            user=request.user, 
+            company_name=request.user.email.split('@')[0],
+            status='PENDING'
+        )
     
     # SECURITY: Enforce contractor profile status - only APPROVED contractors can bid
     # if contractor.status != ContractorProfile.Status.APPROVED:

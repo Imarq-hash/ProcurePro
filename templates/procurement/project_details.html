@@ -12,22 +12,23 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body style="background-color: #FAFAFA;">
-    <!-- Navigation (reused from top of other pages, simplified for focus) -->
+
+    <!-- Navigation -->
     <nav class="navbar" style="position: static;">
         <div class="container nav-container">
             <a href="{% url 'home' %}" class="logo">
                 <div class="logo-icon">P</div>
                 <span class="logo-text">ProcurePro</span>
             </a>
-            
+
             <ul class="nav-links">
                 <li><a href="{% url 'tenders' %}" class="active">Tenders</a></li>
                 <li><a href="{% url 'contractors' %}">Contractors</a></li>
             </ul>
-            
+
             <div class="nav-actions">
                 <a href="{% url 'settings' %}" class="user-avatar" style="text-decoration: none; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; font-size: 0.8rem;">
-                    JD
+                    {{ request.user.email|first|upper }}
                 </a>
             </div>
         </div>
@@ -45,14 +46,16 @@
                 <span class="badge-outline badge-outline-yellow" style="color: #AACC00; background-color: rgba(170, 204, 0, 0.1); border: 1px solid rgba(170, 204, 0, 0.2);">{{ tender.get_category_display }}</span>
                 <span class="badge-outline badge-outline-green" style="color: #00C853; background-color: rgba(0, 200, 83, 0.1); border: 1px solid rgba(0, 200, 83, 0.2);">{{ tender.get_status_display }}</span>
             </div>
-            
+
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px;">
                 <div style="flex: 1; min-width: 300px;">
+                    {% if tender.image_url %}
                     <div style="margin-bottom: 24px; border-radius: 12px; overflow: hidden; height: 250px;">
                         <img src="{{ tender.image_url }}" alt="{{ tender.title }}" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
+                    {% endif %}
                     <h1 style="font-size: 2.2rem; margin-bottom: 24px; color: white;">{{ tender.title }}</h1>
-                    
+
                     <div style="display: flex; gap: 32px; color: #A0A0A0; font-size: 0.9rem;">
                         <span style="display: flex; align-items: center; gap: 8px;">
                             <i class="ph ph-calendar-blank"></i> Posted: {{ tender.created_at|date:"M d, Y" }}
@@ -62,8 +65,9 @@
                         </span>
                     </div>
                 </div>
-                
+
                 <div>
+                    {% url 'project_details' tender.pk as current_url %}
                     {% if request.user.is_authenticated %}
                         {% if request.user.role == 'CONTRACTOR' %}
                             <a href="{% url 'submit_bid' tender.pk %}" class="btn btn-primary btn-lg" style="padding: 12px 32px;">Submit Bid</a>
@@ -71,7 +75,7 @@
                             <div style="color: var(--text-muted); padding: 12px 32px; font-size: 0.9rem;">Only contractors can submit bids</div>
                         {% endif %}
                     {% else %}
-                        <a href="{% url 'signup' %}?next={% url 'project_details' tender.pk %}" class="btn btn-primary btn-lg" style="padding: 12px 32px;">Sign Up to Submit Bid</a>
+                        <a href="{% url 'signup' %}?next={{ current_url|urlencode }}" class="btn btn-primary btn-lg" style="padding: 12px 32px;">Sign Up to Submit Bid</a>
                     {% endif %}
                 </div>
             </div>
@@ -79,53 +83,57 @@
 
         <!-- Details Grid -->
         <div class="project-details-grid">
+
             <!-- Left Column -->
             <div class="project-left-col">
                 <div class="content-card">
                     <h2 style="font-size: 1.25rem; margin-bottom: 16px;">Project Description</h2>
                     <p style="color: var(--text-muted); line-height: 1.8;">{{ tender.description|linebreaksbr }}</p>
                 </div>
-                
+
+                {% if tender.requirements %}
                 <div class="content-card">
                     <h2 style="font-size: 1.25rem; margin-bottom: 16px;">Requirements & Specifications</h2>
                     <ul class="check-list">
-                        <li><i class="ph ph-check-circle"></i> Educational facility experience</li>
-                        <li><i class="ph ph-check-circle"></i> ADA compliance knowledge</li>
-                        <li><i class="ph ph-check-circle"></i> Background checks required</li>
-                        <li><i class="ph ph-check-circle"></i> Child safety protocols</li>
+                        {% for requirement in tender.requirements %}
+                        <li><i class="ph ph-check-circle"></i> {{ requirement }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
+                {% endif %}
             </div>
 
             <!-- Right Column -->
             <div class="project-right-col">
                 <div class="sidebar-dark-card">
                     <h2 style="font-size: 1.25rem; margin-bottom: 24px;">Project Details</h2>
-                    
+
                     <div class="detail-item">
                         <div class="detail-label"><i class="ph ph-currency-circle-dollar"></i> Budget Range</div>
                         <div class="detail-value highlight-text">GH₵ {{ tender.budget_min|default:"TBD" }} - GH₵ {{ tender.budget_max|default:"TBD" }}</div>
                     </div>
-                    
+
                     <div class="detail-separator"></div>
-                    
+
                     <div class="detail-item">
                         <div class="detail-label"><i class="ph ph-map-pin"></i> Location</div>
                         <div class="detail-value">{{ tender.location }}</div>
                     </div>
-                    
+
                     <div class="detail-separator"></div>
-                    
+
                     <div class="detail-item">
                         <div class="detail-label"><i class="ph ph-buildings"></i> Category</div>
                         <div class="detail-value">{{ tender.get_category_display }}</div>
                     </div>
-                    
+
                     <div class="detail-separator"></div>
-                    
+
                     <div class="detail-item">
                         <div class="detail-label"><i class="ph ph-envelope-simple"></i> Contact</div>
-                        <div class="detail-value" style="font-size: 0.85rem;">{{ tender.admin.user.email|default:"admin@procurepro.com" }}</div>
+                        <div class="detail-value" style="font-size: 0.85rem;">
+                            {% if tender.admin %}{{ tender.admin.user.email }}{% else %}admin@procurepro.com{% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -142,7 +150,7 @@
                     <div style="color: var(--text-muted); padding: 12px 32px; font-size: 0.9rem;">Only contractors can submit bids</div>
                 {% endif %}
             {% else %}
-                <a href="{% url 'signup' %}?next={% url 'project_details' tender.pk %}" class="btn btn-primary" style="padding: 12px 32px;">Sign Up to Submit Bid</a>
+                <a href="{% url 'signup' %}?next={{ current_url|urlencode }}" class="btn btn-primary" style="padding: 12px 32px;">Sign Up to Submit Bid</a>
             {% endif %}
         </div>
     </div>
@@ -156,18 +164,19 @@
                     <span class="logo-text">ProcurePro</span>
                 </a>
             </div>
-            
+
             <div class="footer-links">
                 <a href="#">PRIVACY POLICY</a>
                 <a href="#">TERMS OF SERVICE</a>
                 <a href="{% url 'help_center' %}">HELP CENTER</a>
                 <a href="#">SECURITY</a>
             </div>
-            
+
             <div class="footer-copyright">
                 &copy; 2026 ProcurePro. All rights reserved.
             </div>
         </div>
     </footer>
+
 </body>
 </html>

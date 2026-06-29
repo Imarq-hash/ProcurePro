@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
     sidebarNotifTriggers.forEach(trigger => {
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             if (notifDropdown) notifDropdown.classList.toggle('active');
         });
     });

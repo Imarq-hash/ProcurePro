@@ -39,14 +39,15 @@ class AuthTests(TestCase):
         })
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'procurement/admin_login.html')
-        self.assertContains(response, 'Access Denied: You do not have administrative privileges.')
+        self.assertContains(response, 'Invalid email or password.')
 
     def test_admin_signin_redirects_to_admin_dashboard(self):
         admin = User.objects.create_user(
-            email='admin@example.com',
+            email='admin@procurepro.com',
             password='AdminPass123!@',
             role=User.Role.ADMIN,
             is_staff=True,
+            is_superuser=True,
         )
         signin_url = reverse('signin')
         response = self.client.post(signin_url, {
